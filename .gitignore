@@ -70,3 +70,16 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+ExMortalis/.vscode/
+ExMortalis/Library/
+ExMortalis/UserSettings/
+ExMortalis/obj/
+ExMortalis/Logs/
+ExMortalis/Temp/*
+ExMortalis/log.log
+ExMortalis/log.log
+ExMortalis/.vscode/settings.json
+ExMortalis/.vscode/launch.json
+ExMortalis/.vscode/extensions.json
+ExMortalis/.vsconfig
+ExMortalis/Library/BurstCache/JIT/Objects/e02f9ac0c21382a90be34fb9e2832fd7.gbc

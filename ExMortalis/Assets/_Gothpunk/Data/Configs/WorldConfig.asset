@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: WorldConfig
+  m_EditorClassIdentifier: Transendence.Core:Transendence.Core.Configs:WorldConfig
+  Id: 0
+  Name: 
+  BuffDebuffConfigs:
+  - {fileID: 11400000, guid: cf65bd9c8546a904d98aaabd13efdb99, type: 2}
+  AbilityConfigs:
+  - {fileID: 11400000, guid: eba602a47563efc43b763ec3cc9cb31c, type: 2}

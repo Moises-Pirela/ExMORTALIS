@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 1fea157216b5b4fffb7eae5ff68f07d8
+timeCreated: 1498075947
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: m9_accessory
+    100002: m9_bullet
+    100004: m9_hammer
+    100006: m9_magazine
+    100008: m9_muzzle
+    100010: m9_root
+    100012: m9_safety
+    100014: m9_shell
+    100016: m9_slide
+    100018: m9_slidelock
+    100020: m9_trigger
+    100022: //RootNode
+    400000: m9_accessory
+    400002: m9_bullet
+    400004: m9_hammer
+    400006: m9_magazine
+    400008: m9_muzzle
+    400010: m9_root
+    400012: m9_safety
+    400014: m9_shell
+    400016: m9_slide
+    400018: m9_slidelock
+    400020: m9_trigger
+    400022: //RootNode
+    7400000: M9_Reload
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: M9_Reload
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 182
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: m9_root
+        weight: 1
+      - path: m9_root/m9_accessory
+        weight: 1
+      - path: m9_root/m9_bullet
+        weight: 1
+      - path: m9_root/m9_hammer
+        weight: 1
+      - path: m9_root/m9_magazine
+        weight: 1
+      - path: m9_root/m9_muzzle
+        weight: 1
+      - path: m9_root/m9_shell
+        weight: 1
+      - path: m9_root/m9_slide
+        weight: 1
+      - path: m9_root/m9_slide/m9_safety
+        weight: 1
+      - path: m9_root/m9_slidelock
+        weight: 1
+      - path: m9_root/m9_trigger
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

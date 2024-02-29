@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424413991d39673478c3292e94b95e68, type: 3}
+  m_Name: AcidFlaskAbilityConfig
+  m_EditorClassIdentifier: 
+  Id: 0
+  Name: Acid Flask
+  CooldownMs: 5000
+  Range: 30
+  Radius: 0
+  AbilityPrefab: {fileID: 313603993323379693, guid: 384980d4807830d458bd24926d06ebec,
+    type: 3}
