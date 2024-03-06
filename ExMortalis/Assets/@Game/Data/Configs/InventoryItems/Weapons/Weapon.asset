@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affb661a847cc1548bcfcea517b214c8, type: 3}
+  m_Name: Weapon
+  m_EditorClassIdentifier: 
+  Id: 0
+  Name: 
+  ItemType: 1
+  GridSize:
+    x: 0
+    y: 0
+  EquipmentType: 1
+  WeaponType: 0
+  AmmoType: 0
+  MaxRange: 0
+  MaxRounds: 0
+  MagazineSize: 0
+  RecoilStrength: 0
+  BloomSize: 0
+  ReticleTexture: {fileID: 0}

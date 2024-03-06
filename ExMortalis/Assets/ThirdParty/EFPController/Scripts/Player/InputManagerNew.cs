@@ -52,6 +52,7 @@ namespace EFPController
             m_InputActions.Gameplay.Ability2.performed += _ => CastAbility(1);
             m_InputActions.Gameplay.Ability3.performed += _ => CastAbility(2);
             m_InputActions.Gameplay.Ability4.performed += _ => CastAbility(3);
+            //m_InputActions.Gameplay.PrimaryFire.performed += _ => 
         }
 
         void Start()

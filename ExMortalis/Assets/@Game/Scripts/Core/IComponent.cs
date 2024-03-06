@@ -19,6 +19,8 @@
         BuffOnHit,
         Interactable,
         Flammable,
+        Inventory,
+        Equipment,
         Max,
     }
 
