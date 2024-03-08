@@ -96,7 +96,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability1",
+                    "name": "1",
                     "type": "Button",
                     "id": "7ffdc7ab-536e-4f15-b864-3fb7d6d61a55",
                     "expectedControlType": "Button",
@@ -105,7 +105,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability2",
+                    "name": "2",
                     "type": "Button",
                     "id": "102cae67-99de-44df-bd3d-5ca98b254c90",
                     "expectedControlType": "Button",
@@ -114,7 +114,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability3",
+                    "name": "3",
                     "type": "Button",
                     "id": "8b945586-9567-4512-8a74-e56725cba9e2",
                     "expectedControlType": "Button",
@@ -123,9 +123,63 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability4",
+                    "name": "4",
                     "type": "Button",
                     "id": "e1b67f98-0a3e-43d4-a91d-1150b30316f6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "5",
+                    "type": "Button",
+                    "id": "223551aa-9581-4dad-b9bd-602194bdb240",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "6",
+                    "type": "Button",
+                    "id": "8a474bb8-0d6c-4f03-a874-f2cfba4b4f0c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "7",
+                    "type": "Button",
+                    "id": "79c12de9-8647-43f1-8b4c-989f19e5dd4c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "8",
+                    "type": "Button",
+                    "id": "8bf8d284-16e1-46b5-a851-d68bd9674695",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "9",
+                    "type": "Button",
+                    "id": "a59228f4-4a80-433c-a4c2-f721ffc51c2e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "0",
+                    "type": "Button",
+                    "id": "c2e7de96-ada1-4a6f-8db5-9a9d3e9d2508",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -148,6 +202,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "ede1d135-21ed-46e9-9df6-d093c9efade3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cycle",
+                    "type": "Value",
+                    "id": "bab3a592-0cbf-419b-8df4-4306effa3b61",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -399,8 +471,8 @@
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Ability1",
+                    "groups": "Keyboard And Mouse",
+                    "action": "1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -410,8 +482,8 @@
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Ability2",
+                    "groups": "Keyboard And Mouse",
+                    "action": "2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -421,8 +493,8 @@
                     "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Ability3",
+                    "groups": "Keyboard And Mouse",
+                    "action": "3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -432,8 +504,8 @@
                     "path": "<Keyboard>/4",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Ability4",
+                    "groups": "Keyboard And Mouse",
+                    "action": "4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -478,6 +550,94 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "SecondaryFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22a12b29-68be-451f-951e-0fea50ad57d9",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "03bca809-f115-4976-a8fc-e87cdb7ec3ad",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad25b9ee-99f3-4816-97c6-03910ef180da",
+                    "path": "<Keyboard>/7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "093dcaeb-c1e4-4fb1-b9c3-82139c2b9096",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c600c277-d9c7-4106-919e-c81e16dddcdf",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "9",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8f85609-f53b-4602-a23b-6da3b42280b4",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4604d1e-9a7c-4afb-9745-c43f3896f3c0",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d7cfb14-c418-4dd3-873c-aa45e72b8fbb",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "Clamp(min=-1,max=1)",
+                    "groups": "Keyboard And Mouse",
+                    "action": "Cycle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

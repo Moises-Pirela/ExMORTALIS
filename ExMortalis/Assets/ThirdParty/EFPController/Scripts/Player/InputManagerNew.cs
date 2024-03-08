@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static EFPController.InputManager;
 using Transendence.Core;
+using Transendence.Core.Postprocess;
+using UnityEngine.PlayerLoop;
 
 namespace EFPController
 {
@@ -48,11 +50,18 @@ namespace EFPController
 
             m_InputActions = new InputActions();
             
-            m_InputActions.Gameplay.Ability1.performed += _ => CastAbility(0);
-            m_InputActions.Gameplay.Ability2.performed += _ => CastAbility(1);
-            m_InputActions.Gameplay.Ability3.performed += _ => CastAbility(2);
-            m_InputActions.Gameplay.Ability4.performed += _ => CastAbility(3);
-            //m_InputActions.Gameplay.PrimaryFire.performed += _ => 
+            // m_InputActions.Gameplay._1.performed += _ => FireWeapon(0);
+            // m_InputActions.Gameplay._2.performed += _ => FireWeapon(1);
+            // m_InputActions.Gameplay._3.performed += _ => FireWeapon(2);
+            // m_InputActions.Gameplay._4.performed += _ => FireWeapon(3);
+            // m_InputActions.Gameplay._5.performed += _ => FireWeapon(0);
+            // m_InputActions.Gameplay._6.performed += _ => FireWeapon(1);
+            // m_InputActions.Gameplay._7.performed += _ => FireWeapon(2);
+            // m_InputActions.Gameplay._8.performed += _ => FireWeapon(3);
+            // m_InputActions.Gameplay._9.performed += _ => FireWeapon(3);
+            // m_InputActions.Gameplay._0.performed += _ => FireWeapon(3);
+            m_InputActions.Gameplay.PrimaryFire.performed += _ => UseEquippedItem(0); 
+            m_InputActions.Gameplay.Cycle.performed += (InputAction.CallbackContext c) => CycleWeapons((int)c.ReadValue<float>());
         }
 
         void Start()
@@ -138,11 +147,29 @@ namespace EFPController
             return false;
         }
 
-        public void CastAbility(int abilityCasted)
+        public void UseEquippedItem(int weaponIndex)
         {
-            TryGetComponent<AbilityComponent>(out AbilityComponent abilityComponent);
+            UseWeaponPostprocessEvent use = new UseWeaponPostprocessEvent();
 
-            abilityComponent.AbilityCastedIndex = abilityCasted;
+            TryGetComponent<Entity>(out Entity playerEntity);
+
+            use.WeaponIndex = 0;
+            use.WeaponHolderEntityId = playerEntity.Id;
+            use.WeaponUseType = WeaponUseType.Shoot;
+
+            World.Instance.AddPostProcessEvent(use);
+        }
+
+        public void CycleWeapons(int cycleAmount)
+        {
+            CycleWeaponPostProcessEvent cycle = new CycleWeaponPostProcessEvent();
+
+            TryGetComponent<Entity>(out Entity playerEntity);
+
+            cycle.CycleAmount = cycleAmount;
+            cycle.EntityCycleId = playerEntity.Id;
+
+            World.Instance.AddPostProcessEvent(cycle);
         }
 
     }

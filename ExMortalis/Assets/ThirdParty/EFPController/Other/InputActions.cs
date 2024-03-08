@@ -118,7 +118,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Ability1"",
+                    ""name"": ""1"",
                     ""type"": ""Button"",
                     ""id"": ""7ffdc7ab-536e-4f15-b864-3fb7d6d61a55"",
                     ""expectedControlType"": ""Button"",
@@ -127,7 +127,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Ability2"",
+                    ""name"": ""2"",
                     ""type"": ""Button"",
                     ""id"": ""102cae67-99de-44df-bd3d-5ca98b254c90"",
                     ""expectedControlType"": ""Button"",
@@ -136,7 +136,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Ability3"",
+                    ""name"": ""3"",
                     ""type"": ""Button"",
                     ""id"": ""8b945586-9567-4512-8a74-e56725cba9e2"",
                     ""expectedControlType"": ""Button"",
@@ -145,9 +145,63 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Ability4"",
+                    ""name"": ""4"",
                     ""type"": ""Button"",
                     ""id"": ""e1b67f98-0a3e-43d4-a91d-1150b30316f6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""5"",
+                    ""type"": ""Button"",
+                    ""id"": ""223551aa-9581-4dad-b9bd-602194bdb240"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""6"",
+                    ""type"": ""Button"",
+                    ""id"": ""8a474bb8-0d6c-4f03-a874-f2cfba4b4f0c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""7"",
+                    ""type"": ""Button"",
+                    ""id"": ""79c12de9-8647-43f1-8b4c-989f19e5dd4c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""8"",
+                    ""type"": ""Button"",
+                    ""id"": ""8bf8d284-16e1-46b5-a851-d68bd9674695"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""9"",
+                    ""type"": ""Button"",
+                    ""id"": ""a59228f4-4a80-433c-a4c2-f721ffc51c2e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""0"",
+                    ""type"": ""Button"",
+                    ""id"": ""c2e7de96-ada1-4a6f-8db5-9a9d3e9d2508"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -170,6 +224,24 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""ede1d135-21ed-46e9-9df6-d093c9efade3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cycle"",
+                    ""type"": ""Value"",
+                    ""id"": ""bab3a592-0cbf-419b-8df4-4306effa3b61"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -421,8 +493,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability1"",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -432,8 +504,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability2"",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -443,8 +515,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability3"",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -454,8 +526,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability4"",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -500,6 +572,94 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""SecondaryFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22a12b29-68be-451f-951e-0fea50ad57d9"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03bca809-f115-4976-a8fc-e87cdb7ec3ad"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad25b9ee-99f3-4816-97c6-03910ef180da"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""093dcaeb-c1e4-4fb1-b9c3-82139c2b9096"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c600c277-d9c7-4106-919e-c81e16dddcdf"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""9"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8f85609-f53b-4602-a23b-6da3b42280b4"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""0"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4604d1e-9a7c-4afb-9745-c43f3896f3c0"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d7cfb14-c418-4dd3-873c-aa45e72b8fbb"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(min=-1,max=1)"",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""Cycle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -559,12 +719,20 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Gameplay_LeanLeft = m_Gameplay.FindAction("Lean Left", throwIfNotFound: true);
         m_Gameplay_LeanRight = m_Gameplay.FindAction("Lean Right", throwIfNotFound: true);
         m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
-        m_Gameplay_Ability1 = m_Gameplay.FindAction("Ability1", throwIfNotFound: true);
-        m_Gameplay_Ability2 = m_Gameplay.FindAction("Ability2", throwIfNotFound: true);
-        m_Gameplay_Ability3 = m_Gameplay.FindAction("Ability3", throwIfNotFound: true);
-        m_Gameplay_Ability4 = m_Gameplay.FindAction("Ability4", throwIfNotFound: true);
+        m_Gameplay__1 = m_Gameplay.FindAction("1", throwIfNotFound: true);
+        m_Gameplay__2 = m_Gameplay.FindAction("2", throwIfNotFound: true);
+        m_Gameplay__3 = m_Gameplay.FindAction("3", throwIfNotFound: true);
+        m_Gameplay__4 = m_Gameplay.FindAction("4", throwIfNotFound: true);
+        m_Gameplay__5 = m_Gameplay.FindAction("5", throwIfNotFound: true);
+        m_Gameplay__6 = m_Gameplay.FindAction("6", throwIfNotFound: true);
+        m_Gameplay__7 = m_Gameplay.FindAction("7", throwIfNotFound: true);
+        m_Gameplay__8 = m_Gameplay.FindAction("8", throwIfNotFound: true);
+        m_Gameplay__9 = m_Gameplay.FindAction("9", throwIfNotFound: true);
+        m_Gameplay__0 = m_Gameplay.FindAction("0", throwIfNotFound: true);
         m_Gameplay_PrimaryFire = m_Gameplay.FindAction("PrimaryFire", throwIfNotFound: true);
         m_Gameplay_SecondaryFire = m_Gameplay.FindAction("SecondaryFire", throwIfNotFound: true);
+        m_Gameplay_Reload = m_Gameplay.FindAction("Reload", throwIfNotFound: true);
+        m_Gameplay_Cycle = m_Gameplay.FindAction("Cycle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -636,12 +804,20 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_LeanLeft;
     private readonly InputAction m_Gameplay_LeanRight;
     private readonly InputAction m_Gameplay_Dash;
-    private readonly InputAction m_Gameplay_Ability1;
-    private readonly InputAction m_Gameplay_Ability2;
-    private readonly InputAction m_Gameplay_Ability3;
-    private readonly InputAction m_Gameplay_Ability4;
+    private readonly InputAction m_Gameplay__1;
+    private readonly InputAction m_Gameplay__2;
+    private readonly InputAction m_Gameplay__3;
+    private readonly InputAction m_Gameplay__4;
+    private readonly InputAction m_Gameplay__5;
+    private readonly InputAction m_Gameplay__6;
+    private readonly InputAction m_Gameplay__7;
+    private readonly InputAction m_Gameplay__8;
+    private readonly InputAction m_Gameplay__9;
+    private readonly InputAction m_Gameplay__0;
     private readonly InputAction m_Gameplay_PrimaryFire;
     private readonly InputAction m_Gameplay_SecondaryFire;
+    private readonly InputAction m_Gameplay_Reload;
+    private readonly InputAction m_Gameplay_Cycle;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -656,12 +832,20 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @LeanLeft => m_Wrapper.m_Gameplay_LeanLeft;
         public InputAction @LeanRight => m_Wrapper.m_Gameplay_LeanRight;
         public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
-        public InputAction @Ability1 => m_Wrapper.m_Gameplay_Ability1;
-        public InputAction @Ability2 => m_Wrapper.m_Gameplay_Ability2;
-        public InputAction @Ability3 => m_Wrapper.m_Gameplay_Ability3;
-        public InputAction @Ability4 => m_Wrapper.m_Gameplay_Ability4;
+        public InputAction @_1 => m_Wrapper.m_Gameplay__1;
+        public InputAction @_2 => m_Wrapper.m_Gameplay__2;
+        public InputAction @_3 => m_Wrapper.m_Gameplay__3;
+        public InputAction @_4 => m_Wrapper.m_Gameplay__4;
+        public InputAction @_5 => m_Wrapper.m_Gameplay__5;
+        public InputAction @_6 => m_Wrapper.m_Gameplay__6;
+        public InputAction @_7 => m_Wrapper.m_Gameplay__7;
+        public InputAction @_8 => m_Wrapper.m_Gameplay__8;
+        public InputAction @_9 => m_Wrapper.m_Gameplay__9;
+        public InputAction @_0 => m_Wrapper.m_Gameplay__0;
         public InputAction @PrimaryFire => m_Wrapper.m_Gameplay_PrimaryFire;
         public InputAction @SecondaryFire => m_Wrapper.m_Gameplay_SecondaryFire;
+        public InputAction @Reload => m_Wrapper.m_Gameplay_Reload;
+        public InputAction @Cycle => m_Wrapper.m_Gameplay_Cycle;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -701,24 +885,48 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
-            @Ability1.started += instance.OnAbility1;
-            @Ability1.performed += instance.OnAbility1;
-            @Ability1.canceled += instance.OnAbility1;
-            @Ability2.started += instance.OnAbility2;
-            @Ability2.performed += instance.OnAbility2;
-            @Ability2.canceled += instance.OnAbility2;
-            @Ability3.started += instance.OnAbility3;
-            @Ability3.performed += instance.OnAbility3;
-            @Ability3.canceled += instance.OnAbility3;
-            @Ability4.started += instance.OnAbility4;
-            @Ability4.performed += instance.OnAbility4;
-            @Ability4.canceled += instance.OnAbility4;
+            @_1.started += instance.On_1;
+            @_1.performed += instance.On_1;
+            @_1.canceled += instance.On_1;
+            @_2.started += instance.On_2;
+            @_2.performed += instance.On_2;
+            @_2.canceled += instance.On_2;
+            @_3.started += instance.On_3;
+            @_3.performed += instance.On_3;
+            @_3.canceled += instance.On_3;
+            @_4.started += instance.On_4;
+            @_4.performed += instance.On_4;
+            @_4.canceled += instance.On_4;
+            @_5.started += instance.On_5;
+            @_5.performed += instance.On_5;
+            @_5.canceled += instance.On_5;
+            @_6.started += instance.On_6;
+            @_6.performed += instance.On_6;
+            @_6.canceled += instance.On_6;
+            @_7.started += instance.On_7;
+            @_7.performed += instance.On_7;
+            @_7.canceled += instance.On_7;
+            @_8.started += instance.On_8;
+            @_8.performed += instance.On_8;
+            @_8.canceled += instance.On_8;
+            @_9.started += instance.On_9;
+            @_9.performed += instance.On_9;
+            @_9.canceled += instance.On_9;
+            @_0.started += instance.On_0;
+            @_0.performed += instance.On_0;
+            @_0.canceled += instance.On_0;
             @PrimaryFire.started += instance.OnPrimaryFire;
             @PrimaryFire.performed += instance.OnPrimaryFire;
             @PrimaryFire.canceled += instance.OnPrimaryFire;
             @SecondaryFire.started += instance.OnSecondaryFire;
             @SecondaryFire.performed += instance.OnSecondaryFire;
             @SecondaryFire.canceled += instance.OnSecondaryFire;
+            @Reload.started += instance.OnReload;
+            @Reload.performed += instance.OnReload;
+            @Reload.canceled += instance.OnReload;
+            @Cycle.started += instance.OnCycle;
+            @Cycle.performed += instance.OnCycle;
+            @Cycle.canceled += instance.OnCycle;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -753,24 +961,48 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
-            @Ability1.started -= instance.OnAbility1;
-            @Ability1.performed -= instance.OnAbility1;
-            @Ability1.canceled -= instance.OnAbility1;
-            @Ability2.started -= instance.OnAbility2;
-            @Ability2.performed -= instance.OnAbility2;
-            @Ability2.canceled -= instance.OnAbility2;
-            @Ability3.started -= instance.OnAbility3;
-            @Ability3.performed -= instance.OnAbility3;
-            @Ability3.canceled -= instance.OnAbility3;
-            @Ability4.started -= instance.OnAbility4;
-            @Ability4.performed -= instance.OnAbility4;
-            @Ability4.canceled -= instance.OnAbility4;
+            @_1.started -= instance.On_1;
+            @_1.performed -= instance.On_1;
+            @_1.canceled -= instance.On_1;
+            @_2.started -= instance.On_2;
+            @_2.performed -= instance.On_2;
+            @_2.canceled -= instance.On_2;
+            @_3.started -= instance.On_3;
+            @_3.performed -= instance.On_3;
+            @_3.canceled -= instance.On_3;
+            @_4.started -= instance.On_4;
+            @_4.performed -= instance.On_4;
+            @_4.canceled -= instance.On_4;
+            @_5.started -= instance.On_5;
+            @_5.performed -= instance.On_5;
+            @_5.canceled -= instance.On_5;
+            @_6.started -= instance.On_6;
+            @_6.performed -= instance.On_6;
+            @_6.canceled -= instance.On_6;
+            @_7.started -= instance.On_7;
+            @_7.performed -= instance.On_7;
+            @_7.canceled -= instance.On_7;
+            @_8.started -= instance.On_8;
+            @_8.performed -= instance.On_8;
+            @_8.canceled -= instance.On_8;
+            @_9.started -= instance.On_9;
+            @_9.performed -= instance.On_9;
+            @_9.canceled -= instance.On_9;
+            @_0.started -= instance.On_0;
+            @_0.performed -= instance.On_0;
+            @_0.canceled -= instance.On_0;
             @PrimaryFire.started -= instance.OnPrimaryFire;
             @PrimaryFire.performed -= instance.OnPrimaryFire;
             @PrimaryFire.canceled -= instance.OnPrimaryFire;
             @SecondaryFire.started -= instance.OnSecondaryFire;
             @SecondaryFire.performed -= instance.OnSecondaryFire;
             @SecondaryFire.canceled -= instance.OnSecondaryFire;
+            @Reload.started -= instance.OnReload;
+            @Reload.performed -= instance.OnReload;
+            @Reload.canceled -= instance.OnReload;
+            @Cycle.started -= instance.OnCycle;
+            @Cycle.performed -= instance.OnCycle;
+            @Cycle.canceled -= instance.OnCycle;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -827,11 +1059,19 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnLeanLeft(InputAction.CallbackContext context);
         void OnLeanRight(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
-        void OnAbility1(InputAction.CallbackContext context);
-        void OnAbility2(InputAction.CallbackContext context);
-        void OnAbility3(InputAction.CallbackContext context);
-        void OnAbility4(InputAction.CallbackContext context);
+        void On_1(InputAction.CallbackContext context);
+        void On_2(InputAction.CallbackContext context);
+        void On_3(InputAction.CallbackContext context);
+        void On_4(InputAction.CallbackContext context);
+        void On_5(InputAction.CallbackContext context);
+        void On_6(InputAction.CallbackContext context);
+        void On_7(InputAction.CallbackContext context);
+        void On_8(InputAction.CallbackContext context);
+        void On_9(InputAction.CallbackContext context);
+        void On_0(InputAction.CallbackContext context);
         void OnPrimaryFire(InputAction.CallbackContext context);
         void OnSecondaryFire(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
+        void OnCycle(InputAction.CallbackContext context);
     }
 }

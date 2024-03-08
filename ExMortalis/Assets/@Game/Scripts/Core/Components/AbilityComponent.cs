@@ -8,7 +8,7 @@ namespace Transendence.Core
     public class AbilityComponent : MonoBehaviour, IComponent
     {
         public const int MAX_ABILITIES = 4;
-        
+
         public AbilityConfig[] Abilities = new AbilityConfig[MAX_ABILITIES];
 
         [HideInInspector] public int AbilityCastedIndex = -1;

@@ -1,0 +1,32 @@
+using UnityEngine;
+
+namespace Transendence.Core
+{
+    public class Weapon : MonoBehaviour
+    {
+        public int ConfigId;
+        private AudioSource AudioSource;
+        public AmmoCount AmmoCount;
+
+        public void Awake()
+        {
+            AudioSource = GetComponent<AudioSource>();
+        }
+
+        public void SetAudioClip(AudioClip clip)
+        {
+            AudioSource.clip = clip;
+        }
+
+        public void Play()
+        {
+            AudioSource.Play();
+        }
+
+        public void PlayOneShot(AudioClip clip)
+        {
+            AudioSource.PlayOneShot(clip);
+        }
+    }
+
+}

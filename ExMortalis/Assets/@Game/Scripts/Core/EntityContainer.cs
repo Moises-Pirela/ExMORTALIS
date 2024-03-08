@@ -142,6 +142,14 @@ namespace Transendence.Core
                     return new ComponentArray<BuffOnHitComponent>();
                 case ComponentType.Interactable:
                     return new ComponentArray<InteractableComponent>();
+                case ComponentType.Flammable:
+                    return new ComponentArray<FlammableComponent>();
+                case ComponentType.Inventory:
+                    return new ComponentArray<InventoryComponent>();
+                case ComponentType.Equipment:
+                    return new ComponentArray<EquipmentComponent>();
+                case ComponentType.Audio:
+                    return new ComponentArray<AudioComponent>();
                 case ComponentType.Max:
                     break;
             }

@@ -21,6 +21,7 @@
         Flammable,
         Inventory,
         Equipment,
+        Audio,
         Max,
     }
 

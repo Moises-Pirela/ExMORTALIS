@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affb661a847cc1548bcfcea517b214c8, type: 3}
+  m_Name: M1897
+  m_EditorClassIdentifier: 
+  Id: 1
+  Name: M1897
+  ItemSprite: {fileID: 0}
+  ItemType: 1
+  GridSize: {x: 0, y: 0}
+  EquipmentType: 1
+  WeaponType: 0
+  AmmoType: 0
+  Damage: 20
+  FireRate: 0.8
+  BulletsPerShot: 6
+  MaxRange: 500
+  MaxRounds: 24
+  MagazineSize: 6
+  RecoilStrength: 50
+  BloomSize: 50
+  ReticleTexture: {fileID: 0}
+  FireClips:
+  - {fileID: 8300000, guid: a171c0ea4e918bc458f34be7a9455214, type: 3}
+  EmptyFireClip: {fileID: 8300000, guid: a0372d666a61590449554f0ebf4c3b18, type: 3}

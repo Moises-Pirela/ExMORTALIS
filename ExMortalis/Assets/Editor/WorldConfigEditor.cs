@@ -24,6 +24,16 @@ namespace Transendence.EditorTools
             {
                 PopulateAbilityConfigs(worldConfig);
             }
+
+             if (GUILayout.Button("Populate weapon Configs"))
+            {
+                PopulateWeaponConfigs(worldConfig);
+            }
+
+            if (GUILayout.Button("Populate equipemnt Configs"))
+            {
+                PopulateEquipmentConfigs(worldConfig);
+            }
         }
 
         private void PopulateBuffDebuffConfigs(WorldConfig worldConfig)
@@ -45,6 +55,47 @@ namespace Transendence.EditorTools
 
             Debug.Log("Buff/Debuff Configs Populated Successfully!");
         }
+
+        private void PopulateWeaponConfigs(WorldConfig worldConfig)
+        {
+            string[] guids = AssetDatabase.FindAssets($"t:{nameof(WeaponConfig)}");
+
+
+            worldConfig.WeaponConfigs = new WeaponConfig[guids.Length];
+
+            for (int i = 0; i < guids.Length; i++)
+            {
+                string assetPath = AssetDatabase.GUIDToAssetPath(guids[i]);
+                worldConfig.WeaponConfigs[i] = AssetDatabase.LoadAssetAtPath<WeaponConfig>(assetPath);
+                worldConfig.WeaponConfigs[i].Id = i;
+            }
+
+            EditorUtility.SetDirty(worldConfig);
+            AssetDatabase.SaveAssets();
+
+            Debug.Log("Weapon configs Populated Successfully!");
+        }
+
+        private void PopulateEquipmentConfigs(WorldConfig worldConfig)
+        {
+            string[] guids = AssetDatabase.FindAssets($"t:{nameof(EquipmentConfig)}");
+
+
+            worldConfig.EquipmentConfigs = new EquipmentConfig[guids.Length];
+
+            for (int i = 0; i < guids.Length; i++)
+            {
+                string assetPath = AssetDatabase.GUIDToAssetPath(guids[i]);
+                worldConfig.EquipmentConfigs[i] = AssetDatabase.LoadAssetAtPath<EquipmentConfig>(assetPath);
+                worldConfig.EquipmentConfigs[i].Id = i;
+            }
+
+            EditorUtility.SetDirty(worldConfig);
+            AssetDatabase.SaveAssets();
+
+            Debug.Log("Equipment Configs Populated Successfully!");
+        }
+
 
         private void PopulateAbilityConfigs(WorldConfig worldConfig)
         {

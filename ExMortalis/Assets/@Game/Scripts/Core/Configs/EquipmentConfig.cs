@@ -6,6 +6,7 @@ namespace Transendence.Core.Configs
     [CreateAssetMenu(menuName = "Tools/Configs/Equipment", fileName = "Equipment")]
     public class EquipmentConfig : InventoryItemConfig
     {
+        [Header("Equipment")]
         public EquipmentType EquipmentType;
     }
 }

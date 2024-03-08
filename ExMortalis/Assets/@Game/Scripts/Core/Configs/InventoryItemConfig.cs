@@ -12,6 +12,8 @@ namespace Transendence.Core.Configs
     [CreateAssetMenu(menuName = "Tools/Configs/Inventory", fileName = "InventoryItem")]
     public class InventoryItemConfig : BaseScriptableConfig
     {
+        [Header("Inventory")]
+        public Sprite ItemSprite;
         public ItemType ItemType;
 
         public Vector2Int GridSize;

@@ -3384,6 +3384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunID: 2
   gunName: Mag44
+  gunfireClip: {fileID: 0}
+  source: {fileID: 0}
 --- !u!82 &4303904971814444460
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5721,9 +5723,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 998498436377613110}
-  - component: {fileID: 7812084817595052656}
   - component: {fileID: 971725489767344661}
-  - component: {fileID: 62716504396961805}
+  - component: {fileID: 6159152187198880254}
   m_Layer: 11
   m_Name: M9_Mecanim_prefab
   m_TagString: Untagged
@@ -5749,20 +5750,6 @@ Transform:
   m_Father: {fileID: 524189125563487746}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
---- !u!114 &7812084817595052656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993638878181976751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f56ed9e6528db461da3663a2ffb15298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunID: 0
-  gunName: M9
 --- !u!82 &971725489767344661
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5779,8 +5766,8 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
+  Spatialize: 1
+  SpatializePostEffects: 1
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -5819,7 +5806,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5859,40 +5846,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &62716504396961805
+--- !u!114 &6159152187198880254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993638878181976751}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1268462bbc1df4c4391a1c7e1d805265, type: 3}
+  m_Script: {fileID: 11500000, guid: bbe1d3f0f32ce2b419a468baf222b8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  properArmsAnimation: {fileID: 9100000, guid: c9a698bf51ccc4e23a36c9accd62d6f2, type: 2}
-  typeOfGun: 3
-  TakeSound: {fileID: 8300000, guid: cf0322daf57704303abbfc4ddc13b7d4, type: 3}
-  FireSound: {fileID: 8300000, guid: af641f40bda994944b490dd0839c4d5e, type: 3}
-  bullet: {fileID: 100000, guid: 959e1ad8b31a04f71904f1ea1eee4d1f, type: 3}
-  ejectPoint: {fileID: 2556760360220533761}
-  shell: {fileID: 0}
-  useSmooth: 1
-  aimSmooth: 5.9
-  aimFov: 35
-  pelletsPerShot: 10
-  range: 300
-  damage: 20
-  maxPenetration: 3
-  fireRate: 0.5
-  impactForce: 50
-  bulletSpeed: 200
-  baseSpread: 1
-  maxSpread: 4
-  spreadPerSecond: 0.2
-  spread: 0
-  decreaseSpreadPerSec: 0.5
+  ConfigId: 0
 --- !u!1 &2026847281055390443
 GameObject:
   m_ObjectHideFlags: 0
@@ -10187,9 +10153,10 @@ GameObject:
   - component: {fileID: 4731045911253953239}
   - component: {fileID: 6565949389782138400}
   - component: {fileID: 4679901313404533793}
-  - component: {fileID: 2261007520639497600}
   - component: {fileID: 2596949231356191438}
   - component: {fileID: -5833374569310947053}
+  - component: {fileID: 2452354722341124336}
+  - component: {fileID: 1820241425469798899}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -10645,21 +10612,6 @@ CapsuleCollider:
   m_Height: 1.9
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2261007520639497600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4158626594819421815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50986456371b5a34ebfde2f94377bb06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Abilities:
-  - {fileID: 11400000, guid: eba602a47563efc43b763ec3cc9cb31c, type: 2}
-  AbilityCastedIndex: -1
 --- !u!114 &2596949231356191438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10685,6 +10637,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35058d2a6f15cfa4d98c8ab7ce0156d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2452354722341124336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4158626594819421815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0229087ffec39e749bc9421fb5a5fb2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventorySize: 0
+--- !u!114 &1820241425469798899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4158626594819421815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d19322e08e173a44a7e99927611b5b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EquippedWeapons:
+  - {fileID: 6159152187198880254}
+  EquippedEquipment:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  WeaponSpawnPoint: {fileID: 3822170599207865801}
+  ShootLayer:
+    serializedVersion: 2
+    m_Bits: 4305
 --- !u!1 &4178547040463068527
 GameObject:
   m_ObjectHideFlags: 0
@@ -10926,7 +10917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4748125191423777827
 Transform:
   m_ObjectHideFlags: 0
@@ -12729,6 +12720,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunID: 1
   gunName: TT
+  gunfireClip: {fileID: 0}
+  source: {fileID: 0}
 --- !u!82 &8441470610159478
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23354,7 +23347,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
