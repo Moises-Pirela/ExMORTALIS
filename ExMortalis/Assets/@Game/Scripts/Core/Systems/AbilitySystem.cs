@@ -9,7 +9,7 @@ namespace Transendence.Core.Systems
     public class AbilitySystem : BaseSystem
     {
         [BurstCompile]
-        public override void Update(Entity[] entities, ComponentArray[] componentArrays)
+        public override void SystemUpdate(Entity[] entities, ComponentArray[] componentArrays)
         {
             AbilityComponent[] abilityComponents = ((ComponentArray<AbilityComponent>)componentArrays[(int)ComponentType.Ability]).Components;
             ChildComponent[] childComponents = ((ComponentArray<ChildComponent>)componentArrays[(int)ComponentType.Child]).Components;

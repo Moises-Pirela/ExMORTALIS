@@ -18,6 +18,8 @@ MonoBehaviour:
   ItemType: 1
   GridSize: {x: 0, y: 0}
   EquipmentType: 1
+  WeaponEntityPrefab: {fileID: 302093132449660347, guid: 8a21c0636d8a6fe4f9b3cc18eddb85a8,
+    type: 3}
   WeaponType: 0
   AmmoType: 0
   Damage: 20

@@ -5,9 +5,9 @@ namespace Transendence.Core.Systems
 {
     public abstract class BaseSystem
     {
-        public virtual void Update(Entity[] entities, ComponentArray[] componentArrays)
+        public virtual void SystemUpdate(Entity[] entities, ComponentArray[] componentArrays)
         { }
-        public virtual void Update(Entity[] entities, ComponentArray[] componentArrays, List<IPostProcessEvent> postProcessEvents)
+        public virtual void SystemUpdate(Entity[] entities, ComponentArray[] componentArrays, List<IPostProcessEvent> postProcessEvents)
         { }
     }
 

@@ -7,7 +7,7 @@ namespace Transendence.Core.Systems
     public class FirePropagationSystem : BaseSystem
     {
         [BurstCompile]
-        public override void Update(Entity[] entities, ComponentArray[] componentArrays)
+        public override void SystemUpdate(Entity[] entities, ComponentArray[] componentArrays)
         {
         }
     }

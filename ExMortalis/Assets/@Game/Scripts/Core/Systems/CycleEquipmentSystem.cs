@@ -7,7 +7,7 @@ namespace Transendence.Core.Systems
     [System(SystemAttributeType.PostProcess)]
     public class CycleEquipmentSystem : BaseSystem
     {
-        public override void Update(Entity[] entities, ComponentArray[] componentArrays, List<IPostProcessEvent> postProcessEvents)
+        public override void SystemUpdate(Entity[] entities, ComponentArray[] componentArrays, List<IPostProcessEvent> postProcessEvents)
         {
             EquipmentComponent[] equipmentComponents = ((ComponentArray<EquipmentComponent>)componentArrays[(int)ComponentType.Equipment]).Components;
             WeaponComponent[] weaponComponents = ((ComponentArray<WeaponComponent>)componentArrays[(int)ComponentType.Weapon]).Components;
@@ -32,6 +32,8 @@ namespace Transendence.Core.Systems
 
                     int equippedEntityId = equipmentComponents[cycleWeaponPostprocess.EntityCycleId].EquippedWeaponEntityIds[equipmentComponents[cycleWeaponPostprocess.EntityCycleId].CurrentEquippedWeaponIndex];
                     int toEquipEntityId = equipmentComponents[cycleWeaponPostprocess.EntityCycleId].EquippedWeaponEntityIds[newWeaponIndex];
+
+                    if (weaponComponents[toEquipEntityId] == null) continue;
 
                     weaponComponents[equippedEntityId].gameObject.SetActive(false);
                     weaponComponents[toEquipEntityId].gameObject.SetActive(true);

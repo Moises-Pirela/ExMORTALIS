@@ -10,7 +10,7 @@ namespace Transendence.Core.Systems
     public class WeaponFireSystem : BaseSystem
     {
         private float NextFireTime;
-        public override void Update(Entity[] entities, ComponentArray[] componentArrays, List<IPostProcessEvent> postProcessEvents)
+        public override void SystemUpdate(Entity[] entities, ComponentArray[] componentArrays, List<IPostProcessEvent> postProcessEvents)
         {
             EquipmentComponent[] equipmentComponents = ((ComponentArray<EquipmentComponent>)componentArrays[(int)ComponentType.Equipment]).Components;
             WeaponComponent[] weaponComponents = ((ComponentArray<WeaponComponent>)componentArrays[(int)ComponentType.Weapon]).Components;
@@ -25,6 +25,9 @@ namespace Transendence.Core.Systems
                     int weaponEntityId = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].EquippedWeaponEntityIds[weaponIndex];
 
                     WeaponComponent equippedWeapon = weaponComponents[weaponEntityId];
+
+                    if (equippedWeapon == null) continue;
+
                     WeaponConfig weaponConfig = equippedWeapon.WeaponConfig;
 
                     Transform weaponTransform = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].WeaponShootPoint;

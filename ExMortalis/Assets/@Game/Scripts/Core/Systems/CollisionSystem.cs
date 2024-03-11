@@ -10,7 +10,7 @@ namespace Transendence.Core.Systems
     public class CollisionSystem : BaseSystem
     {
         [BurstCompile]
-        public override void Update(Entity[] entities, ComponentArray[] componentArrays)
+        public override void SystemUpdate(Entity[] entities, ComponentArray[] componentArrays)
         {
             CollisionComponent[] collisionComponents = ((ComponentArray<CollisionComponent>)componentArrays[(int)ComponentType.Collision]).Components;
             BuffDebuffComponent[] buffDebuffComponents = ((ComponentArray<BuffDebuffComponent>)componentArrays[(int)ComponentType.BuffDebuff]).Components;

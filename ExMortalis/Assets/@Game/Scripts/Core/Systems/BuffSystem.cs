@@ -9,7 +9,7 @@ namespace Transendence.Core.Systems
     public class BuffSystem : BaseSystem
     {
         [BurstCompile]
-        public override void Update(Entity[] entities, ComponentArray[] componentArrays)
+        public override void SystemUpdate(Entity[] entities, ComponentArray[] componentArrays)
         {
             BuffDebuffComponent[] buffDebuffComponents = ((ComponentArray<BuffDebuffComponent>)componentArrays[(int)ComponentType.BuffDebuff]).Components;
             DamageComponent[] damageComponents = ((ComponentArray<DamageComponent>)componentArrays[(int)ComponentType.Damage]).Components;

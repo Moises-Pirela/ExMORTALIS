@@ -44,12 +44,12 @@ namespace Transendence.Core
         {
             foreach (var system in Systems)
             {
-                system.Update(EntityContainer.Entities, EntityContainer.Components);
+                system.SystemUpdate(EntityContainer.Entities, EntityContainer.Components);
             }
 
             foreach (var system in PostProcessSystems)
             {
-                system.Update(EntityContainer.Entities, EntityContainer.Components, PostProcesses);
+                system.SystemUpdate(EntityContainer.Entities, EntityContainer.Components, PostProcesses);
             }
 
             PostProcesses.Clear();
@@ -59,7 +59,7 @@ namespace Transendence.Core
         {
             foreach (var fixedSystem in FixedSystems)
             {
-                fixedSystem.Update(EntityContainer.Entities, EntityContainer.Components);
+                fixedSystem.SystemUpdate(EntityContainer.Entities, EntityContainer.Components);
             }
         }
 
