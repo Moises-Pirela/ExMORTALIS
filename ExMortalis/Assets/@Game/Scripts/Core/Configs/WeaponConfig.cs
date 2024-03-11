@@ -11,6 +11,7 @@ namespace Transendence.Core.Configs
     public class WeaponConfig : EquipmentConfig
     {
         [Header("Weapon")]
+        public GameObject WeaponEntityPrefab;
         public WeaponType WeaponType;
         public AmmoType AmmoType;
         public float Damage;

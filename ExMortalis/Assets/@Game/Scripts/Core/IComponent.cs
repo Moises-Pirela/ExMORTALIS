@@ -22,6 +22,7 @@
         Inventory,
         Equipment,
         Audio,
+        Weapon,
         Max,
     }
 
