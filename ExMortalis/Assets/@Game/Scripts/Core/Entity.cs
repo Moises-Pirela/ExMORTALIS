@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Security.Principal;
 using Transendence.Core;
+using Transendence.Core.Postprocess;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -22,7 +24,15 @@ public class Entity : MonoBehaviour
     {
         if (IsStartingEntity)
         {
-            World.Instance.EntityContainer.CreateEntity(this.gameObject);            
+
+            CreateEntityPostprocessEvent createEntityPostprocess = new CreateEntityPostprocessEvent
+            {
+                EntityGO = this.gameObject,
+                SpawnPosition = transform.position,
+                SpawnRotation = transform.rotation.eulerAngles
+            };
+
+            World.Instance.AddPostProcessEvent(createEntityPostprocess);
         }
     }
 
@@ -72,7 +82,7 @@ public class Entity : MonoBehaviour
             collisionComponent.Collisions.Remove(entity.Id);
         }
     }
-    
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

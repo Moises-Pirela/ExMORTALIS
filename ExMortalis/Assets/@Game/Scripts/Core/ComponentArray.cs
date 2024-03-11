@@ -1,12 +1,12 @@
 ﻿using System;
 using Unity.Burst;
+using UnityEngine;
 
 namespace Transendence.Core
 {
     public abstract class ComponentArray
     {
         public abstract void Add(int entity, IComponent component);
-        public abstract void UpdateComponents();
 
         public abstract void Remove(int entityID);
     }
@@ -28,21 +28,6 @@ namespace Transendence.Core
         public override void Remove(int entityID)
         {
             Components[entityID] = default(Component);
-        }
-
-        [BurstCompile]
-        public override void UpdateComponents()
-        {
-            for (int i = 0; i < Components.Length; i++)
-            {
-                if (Components[i] == null) continue;
-
-                Component component = Components[i];
-
-                //if (component.OwningEntityId == -1) continue;
-
-                //component.Tick();
-            }
         }
     }
 }

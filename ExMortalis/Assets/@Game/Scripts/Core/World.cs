@@ -17,6 +17,7 @@ namespace Transendence.Core
     public class World : MonoBehaviour
     {
         public static World Instance;
+        public static int PLAYER_ENTITY_ID = -1;
         public const int MAX_ENTITIES = 200;
         public EntityContainer EntityContainer;
         public WorldConfig WorldConfig;

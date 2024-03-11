@@ -85,6 +85,8 @@ namespace Transendence.Core
 
             Entities[entity.Id].Flags.SetFlag((int)EEntityFlags.Active);
 
+            Debug.Log($"Created entity {entity.name} with id {entity.Id}");
+
             //TODO: Create and update entity archetypes for easier lookup and looping
             return entity.Id;
         }
@@ -127,7 +129,7 @@ namespace Transendence.Core
                 case ComponentType.Throwable:
                     return new ComponentArray<ThrowableComponent>();
                 case ComponentType.PlayerTag:
-                    return new ComponentArray<PlayerTagComponent>(1);
+                    return new ComponentArray<PlayerTagComponent>();
                 case ComponentType.DestroyOnHit:
                     return new ComponentArray<DestroyOnHitComponent>();
                 case ComponentType.SpawnOnHit:
