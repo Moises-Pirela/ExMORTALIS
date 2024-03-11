@@ -15,7 +15,6 @@ namespace Transendence.Core.Configs
         [Header("Inventory")]
         public Sprite ItemSprite;
         public ItemType ItemType;
-
         public Vector2Int GridSize;
     }
 }

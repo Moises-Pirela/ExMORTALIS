@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Transendence.Core.Postprocess
 {
     public enum WeaponUseType
@@ -17,6 +19,14 @@ namespace Transendence.Core.Postprocess
     {
         public int CycleAmount;
         public int EntityCycleId;
+    }
+
+    public struct EquipWeaponPostProcessEvent : IPostProcessEvent
+    {
+        public int WielderEntityId;
+        public int WeaponConfigId;
+        public int WeaponSlotIndex;
+        public Transform ParentTransform;
     }
 }
 

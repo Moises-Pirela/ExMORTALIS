@@ -7,10 +7,15 @@ namespace Transendence.Core
     {
         public int CurrentEquippedWeaponIndex;
         public int PrevEquippedWeaponIndex;
-        public Weapon[] EquippedWeapons = new Weapon[3];
-        public EquipmentConfig[] EquippedEquipment = new EquipmentConfig[7];
+        [HideInInspector] public int[] EquippedWeaponEntityIds = new int[3];
         public Transform WeaponSpawnPoint;
+        public Transform WeaponShootPoint;
         public LayerMask ShootLayer;
+
+        private void Awake()
+        {
+            EquippedWeaponEntityIds = new int[3];
+        }
 
         public ComponentType GetComponentType()
         {

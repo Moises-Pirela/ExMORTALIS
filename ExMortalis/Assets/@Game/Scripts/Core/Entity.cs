@@ -72,12 +72,16 @@ public class Entity : MonoBehaviour
             collisionComponent.Collisions.Remove(entity.Id);
         }
     }
-
+    
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        Handles.color = Color.green;
-        Handles.Label(transform.position + Vector3.up / 2, $"ID : {Id}", new GUIStyle() { fontSize = 16 });
+        GUIStyle style = new GUIStyle();
+        style.normal.textColor = Color.green;
+        style.fontSize = 16;
+        Handles.Label(transform.position + Vector3.up / 2, $"ID : {Id}", style);
     }
+#endif
 }
 
 public struct EntityFlags

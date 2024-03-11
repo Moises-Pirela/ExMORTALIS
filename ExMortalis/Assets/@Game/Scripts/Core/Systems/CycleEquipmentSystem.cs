@@ -10,6 +10,7 @@ namespace Transendence.Core.Systems
         public override void Update(Entity[] entities, ComponentArray[] componentArrays, List<IPostProcessEvent> postProcessEvents)
         {
             EquipmentComponent[] equipmentComponents = ((ComponentArray<EquipmentComponent>)componentArrays[(int)ComponentType.Equipment]).Components;
+            WeaponComponent[] weaponComponents = ((ComponentArray<WeaponComponent>)componentArrays[(int)ComponentType.Weapon]).Components;
 
             for (int i1 = 0; i1 < postProcessEvents.Count; i1++)
             {
@@ -19,18 +20,21 @@ namespace Transendence.Core.Systems
                 {
                     int newWeaponIndex = equipmentComponents[cycleWeaponPostprocess.EntityCycleId].CurrentEquippedWeaponIndex + cycleWeaponPostprocess.CycleAmount;
 
-                    if (newWeaponIndex >= equipmentComponents[cycleWeaponPostprocess.EntityCycleId].EquippedWeapons.Length)
+                    if (newWeaponIndex >= equipmentComponents[cycleWeaponPostprocess.EntityCycleId].EquippedWeaponEntityIds.Length)
                     {
                         newWeaponIndex = 0;
 
                     }
                     else if (newWeaponIndex < 0)
                     {
-                        newWeaponIndex = equipmentComponents[cycleWeaponPostprocess.EntityCycleId].EquippedWeapons.Length - 1;
+                        newWeaponIndex = equipmentComponents[cycleWeaponPostprocess.EntityCycleId].EquippedWeaponEntityIds.Length - 1;
                     }
 
-                    equipmentComponents[cycleWeaponPostprocess.EntityCycleId].EquippedWeapons[equipmentComponents[cycleWeaponPostprocess.EntityCycleId].CurrentEquippedWeaponIndex].gameObject.SetActive(false);
-                    equipmentComponents[cycleWeaponPostprocess.EntityCycleId].EquippedWeapons[newWeaponIndex].gameObject.SetActive(true);
+                    int equippedEntityId = equipmentComponents[cycleWeaponPostprocess.EntityCycleId].EquippedWeaponEntityIds[equipmentComponents[cycleWeaponPostprocess.EntityCycleId].CurrentEquippedWeaponIndex];
+                    int toEquipEntityId = equipmentComponents[cycleWeaponPostprocess.EntityCycleId].EquippedWeaponEntityIds[newWeaponIndex];
+
+                    weaponComponents[equippedEntityId].gameObject.SetActive(false);
+                    weaponComponents[toEquipEntityId].gameObject.SetActive(true);
 
                     equipmentComponents[cycleWeaponPostprocess.EntityCycleId].PrevEquippedWeaponIndex = equipmentComponents[cycleWeaponPostprocess.EntityCycleId].CurrentEquippedWeaponIndex;
                     equipmentComponents[cycleWeaponPostprocess.EntityCycleId].CurrentEquippedWeaponIndex = newWeaponIndex;

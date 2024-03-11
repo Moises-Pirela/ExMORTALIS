@@ -9,9 +9,10 @@ namespace Transendence.Utilities
     {
         public SystemAttributeType SystemType { get; private set; }
         public int Priority { get; private set; }
-        public SystemAttribute(SystemAttributeType type)
+        public SystemAttribute(SystemAttributeType type, int priority = 0)
         {
             SystemType = type;
+            Priority = priority;
         }
     }
 }

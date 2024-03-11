@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3697754020936461622}
   - component: {fileID: 7148873461174012241}
   - component: {fileID: 8391264863199621583}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: m 97 add1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,9 +93,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8988716048590851663}
-  - component: {fileID: 342848976742310180}
   - component: {fileID: 4042621279562199787}
-  m_Layer: 0
+  - component: {fileID: 956373872192407204}
+  m_Layer: 11
   m_Name: M1897
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,19 +123,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &342848976742310180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2385975003699691664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbe1d3f0f32ce2b419a468baf222b8be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ConfigId: 0
 --- !u!82 &4042621279562199787
 AudioSource:
   m_ObjectHideFlags: 0
@@ -232,6 +219,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &956373872192407204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2385975003699691664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e45ec5149cce34e9ddb710b4bd5561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WielderEntityId: 0
+  WeaponConfig: {fileID: 11400000, guid: 11cd45764413dfa41a1df0b9aeeef958, type: 2}
 --- !u!1 &2425724868629186707
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +244,7 @@ GameObject:
   - component: {fileID: 4757654893364768711}
   - component: {fileID: 3888245229108485752}
   - component: {fileID: 311845275370539547}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: m 97 add4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +327,7 @@ GameObject:
   - component: {fileID: 1201712985139413417}
   - component: {fileID: 912513517670230939}
   - component: {fileID: 4268081875667611643}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: m 97 add2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +410,7 @@ GameObject:
   - component: {fileID: 2271259357892337229}
   - component: {fileID: 7892108197475925745}
   - component: {fileID: 2841075287509018346}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: 12 cal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +493,7 @@ GameObject:
   - component: {fileID: 2384579650337915486}
   - component: {fileID: 1444903662604634627}
   - component: {fileID: 2167881563022168853}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: m 97
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +576,7 @@ GameObject:
   - component: {fileID: 4320644152195146506}
   - component: {fileID: 4438466129439850430}
   - component: {fileID: 2910994141366930507}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: m 97 add3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

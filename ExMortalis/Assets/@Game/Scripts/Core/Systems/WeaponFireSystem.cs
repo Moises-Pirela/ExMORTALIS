@@ -22,9 +22,12 @@ namespace Transendence.Core.Systems
                 if (postProcessEvent is UseWeaponPostprocessEvent weaponPostprocess)
                 {
                     int weaponIndex = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].CurrentEquippedWeaponIndex;
-                    Weapon equippedWeapon = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].EquippedWeapons[weaponIndex];
-                    WeaponConfig weaponConfig = World.Instance.WorldConfig.WeaponConfigs[equippedWeapon.ConfigId];
-                    Transform weaponTransform = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].WeaponSpawnPoint;
+                    int weaponEntityId = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].EquippedWeaponEntityIds[weaponIndex];
+
+                    WeaponComponent equippedWeapon = weaponComponents[weaponEntityId];
+                    WeaponConfig weaponConfig = equippedWeapon.WeaponConfig;
+
+                    Transform weaponTransform = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].WeaponShootPoint;
 
                     if (weaponPostprocess.WeaponUseType == WeaponUseType.Shoot)
                     {

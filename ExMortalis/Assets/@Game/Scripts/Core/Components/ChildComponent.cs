@@ -6,6 +6,7 @@ namespace Transendence.Core
     {
         public int ParentEntityId;
         public Vector3 SpawnOffset;
+        public Vector3 SpawnRotation;
 
         public ComponentType GetComponentType()
         {

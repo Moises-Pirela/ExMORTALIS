@@ -177,7 +177,7 @@ namespace EFPController
                     {
                         InteractPostprocessEvent interactPostprocessEvent = new InteractPostprocessEvent();
 
-                        interactPostprocessEvent.InteractDealerEntityId = 0; //TODO: CHange to player entity id
+                        interactPostprocessEvent.InteractorEntityId = 0; //TODO: CHange to player entity id
                         interactPostprocessEvent.TargetEntityId = interactionEntity.Id;
                         interactPostprocessEvent.Type = InteractPostprocessEvent.InteractionType.Use;
 

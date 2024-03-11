@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 270851459284807641}
   - component: {fileID: 7370585146815741838}
   - component: {fileID: 1596614543339019318}
-  - component: {fileID: 3887966840766598454}
-  - component: {fileID: 7627334429140975405}
-  - component: {fileID: 1525406694671494090}
-  m_Layer: 11
-  m_Name: BorchardtC93
-  m_TagString: Untagged
+  - component: {fileID: 1145776503382571518}
+  - component: {fileID: 8246956272760790388}
+  - component: {fileID: 6211551603514444294}
+  - component: {fileID: 395516028959614941}
+  m_Layer: 6
+  m_Name: BorchardtC93Pickup
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 6606201650075071021}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!33 &270851459284807641
 MeshFilter:
@@ -184,36 +185,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3887966840766598454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302093132449660347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e45ec5149cce34e9ddb710b4bd5561, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WielderEntityId: 0
-  WeaponConfig: {fileID: 11400000, guid: 40a70eec0ef91fe4bb78bb0206548018, type: 2}
---- !u!114 &7627334429140975405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302093132449660347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b7cf9fa32510c746b164bc24af0b92f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ParentEntityId: 0
-  SpawnOffset: {x: 0.05, y: 0, z: 0.08}
-  SpawnRotation: {x: 0, y: 0, z: 180}
---- !u!114 &1525406694671494090
+--- !u!114 &1145776503382571518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,8 +197,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c19311eb3d1c1f4882bb602ec2cddaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsStartingEntity: 0
+  IsStartingEntity: 1
   Id: -1
+--- !u!114 &8246956272760790388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302093132449660347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a113dccb099984eab8463eff418e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  IsOpen: 0
+  IsUsed: 0
+  IsInspected: 0
+  IsPickedUp: 0
+--- !u!65 &6211551603514444294
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302093132449660347}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4618309, y: 0.058070276, z: 0.1826063}
+  m_Center: {x: 0.10107126, y: -0.008039748, z: -0.040595032}
+--- !u!114 &395516028959614941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302093132449660347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62029c6b3e53434888c43e99cfeb3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryItemConfig: {fileID: 11400000, guid: 40a70eec0ef91fe4bb78bb0206548018,
+    type: 2}
 --- !u!1 &554870183728212357
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +264,7 @@ GameObject:
   - component: {fileID: 6606201650075071021}
   - component: {fileID: 2380719801888839806}
   - component: {fileID: 2246655030662387559}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: Object049
   m_TagString: Untagged
   m_Icon: {fileID: 0}

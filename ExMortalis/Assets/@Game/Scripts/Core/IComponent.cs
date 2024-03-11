@@ -23,6 +23,7 @@
         Equipment,
         Audio,
         Weapon,
+        PickUpOnInteract,
         Max,
     }
 

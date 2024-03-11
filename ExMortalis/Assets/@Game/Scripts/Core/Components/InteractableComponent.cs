@@ -9,6 +9,7 @@ namespace Transendence.Core
         public bool IsOpen = false;
         public bool IsUsed = false;
         public bool IsInspected = false;
+        public bool IsPickedUp = false;
 
         public ComponentType GetComponentType()
         {

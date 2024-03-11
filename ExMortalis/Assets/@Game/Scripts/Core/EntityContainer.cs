@@ -150,6 +150,10 @@ namespace Transendence.Core
                     return new ComponentArray<EquipmentComponent>();
                 case ComponentType.Audio:
                     return new ComponentArray<AudioComponent>();
+                case ComponentType.Weapon:
+                    return new ComponentArray<WeaponComponent>();
+                case ComponentType.PickUpOnInteract:
+                    return new ComponentArray<PickUpOnInteractComponent>();
                 case ComponentType.Max:
                     break;
             }
