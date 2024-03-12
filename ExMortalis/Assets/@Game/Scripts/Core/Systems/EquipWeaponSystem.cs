@@ -33,7 +33,31 @@ namespace Transendence.Core.Systems
                     entities[weaponEntityId].transform.localPosition = Vector3.zero + childComponents[weaponEntityId].SpawnOffset;
                     entities[weaponEntityId].transform.localRotation = Quaternion.Euler(childComponents[weaponEntityId].SpawnRotation);
 
-                    equipmentComponents[wielderEntityId].EquippedWeaponEntityIds[weaponPostprocess.WeaponSlotIndex] = weaponEntityId;
+                    //look for available slot for weapo
+                    int availableSlot = -1;
+
+                    for (int j = 0; j < equipmentComponents[wielderEntityId].EquippedItemEntityIds.Length; j++)
+                    {
+                        if (equipmentComponents[wielderEntityId].EquippedItemEntityIds[j] == -1)
+                        {
+                            availableSlot = j;
+                            break;
+                        }
+                    }
+
+                    if (availableSlot == -1) continue;
+
+                    int currentWeaponEquipped = equipmentComponents[weaponPostprocess.WielderEntityId].CurrentEquippedWeaponIndex;
+
+                    if (currentWeaponEquipped != -1)
+                    {
+                        int equippedEntityId = equipmentComponents[weaponPostprocess.WielderEntityId].EquippedItemEntityIds[currentWeaponEquipped];
+
+                        weaponComponents[equippedEntityId].gameObject.SetActive(false);
+                    }
+
+                    equipmentComponents[wielderEntityId].EquippedItemEntityIds[availableSlot] = weaponEntityId;
+                    equipmentComponents[weaponPostprocess.WielderEntityId].UpdateWeaponEquipped(availableSlot);
                 }
             }
         }

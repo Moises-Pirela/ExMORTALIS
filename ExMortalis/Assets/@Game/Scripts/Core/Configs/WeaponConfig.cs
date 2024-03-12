@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Transendence.Core.Configs
 {
     public enum WeaponType { Ranged, Melee, Throwable }
-    public enum AmmoType { Kinetic, Neurobiotic, Energy }
+    public enum AmmoType { Kinetic, Neurobiotic, Energy, Max }
 
     [CreateAssetMenu(menuName = "Tools/Configs/Weapons", fileName = "Weapon")]
     public class WeaponConfig : EquipmentConfig

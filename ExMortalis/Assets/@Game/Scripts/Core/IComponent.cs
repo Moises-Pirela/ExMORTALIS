@@ -24,6 +24,7 @@
         Audio,
         Weapon,
         PickUpOnInteract,
+        AmmoItemPickup,
         Max,
     }
 

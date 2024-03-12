@@ -22,7 +22,7 @@ namespace Transendence.Core.Systems
                 if (postProcessEvent is UseWeaponPostprocessEvent weaponPostprocess)
                 {
                     int weaponIndex = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].CurrentEquippedWeaponIndex;
-                    int weaponEntityId = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].EquippedWeaponEntityIds[weaponIndex];
+                    int weaponEntityId = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].EquippedItemEntityIds[weaponIndex];
 
                     WeaponComponent equippedWeapon = weaponComponents[weaponEntityId];
 

@@ -3,6 +3,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEngine.EventSystems.EventTrigger;
+using System.Reflection;
+using System.Linq;
 
 namespace Transendence.Core
 {
@@ -17,12 +19,8 @@ namespace Transendence.Core
         public EntityContainer()
         {
             Entities = new Entity[World.MAX_ENTITIES];
-            Components = new ComponentArray[(int)ComponentType.Max];
 
-            for (int i = 0; i < Components.Length; i++)
-            {
-                Components[i] = GetComponentArray((ComponentType)i);
-            }
+            CreateComponentArrays();
         }
 
         public bool HasComponent<T>(int entityId, ComponentType componentType) where T : IComponent
@@ -45,6 +43,28 @@ namespace Transendence.Core
             component = array[entityId];
 
             return true;
+        }
+
+        private void CreateComponentArrays()
+        {
+            var componentTypes = Assembly
+                          .GetExecutingAssembly()
+                          .GetTypes()
+                          .Where(t => typeof(IComponent).IsAssignableFrom(t) && t != typeof(IComponent));
+
+            Components = new ComponentArray[componentTypes.Count()];
+
+            foreach (var type in componentTypes)
+            {
+                var componentInstance = (IComponent)Activator.CreateInstance(type);
+                int componentType = (int)componentInstance.GetComponentType();
+
+                var genericComponentArrayType = typeof(ComponentArray<>).MakeGenericType(type);
+
+                Components[componentType] = (ComponentArray)Activator.CreateInstance(genericComponentArrayType, World.MAX_ENTITIES);
+
+                Debug.Log($"Creating component array for {type.Name}");
+            }
         }
 
 
@@ -106,61 +126,6 @@ namespace Transendence.Core
             Entities[entityID].Id = -1;
 
             GameObject.Destroy(entity.gameObject); //NOTE: We can pool these entities to make sure we're being as efficient as possible with entity creation and removal
-        }
-
-        public static ComponentArray GetComponentArray(ComponentType componentType)
-        {
-            switch (componentType)
-            {
-                case ComponentType.Movement:
-                    return new ComponentArray<MovementComponent>();
-                case ComponentType.Health:
-                    return new ComponentArray<HealthComponent>();
-                case ComponentType.Ability:
-                    return new ComponentArray<AbilityComponent>();
-                case ComponentType.Damage:
-                    return new ComponentArray<DamageComponent>();
-                case ComponentType.Child:
-                    return new ComponentArray<ChildComponent>();
-                case ComponentType.Projectile:
-                    return new ComponentArray<ProjectileComponent>();
-                case ComponentType.BuffDebuff:
-                    return new ComponentArray<BuffDebuffComponent>();
-                case ComponentType.Throwable:
-                    return new ComponentArray<ThrowableComponent>();
-                case ComponentType.PlayerTag:
-                    return new ComponentArray<PlayerTagComponent>();
-                case ComponentType.DestroyOnHit:
-                    return new ComponentArray<DestroyOnHitComponent>();
-                case ComponentType.SpawnOnHit:
-                    return new ComponentArray<SpawnOnHitComponent>();
-                case ComponentType.DamageOnHit:
-                    return new ComponentArray<DamageOnHitComponent>();
-                case ComponentType.Collision:
-                    return new ComponentArray<CollisionComponent>();
-                case ComponentType.Attributes:
-                    return new ComponentArray<AttributesComponent>();
-                case ComponentType.BuffOnHit:
-                    return new ComponentArray<BuffOnHitComponent>();
-                case ComponentType.Interactable:
-                    return new ComponentArray<InteractableComponent>();
-                case ComponentType.Flammable:
-                    return new ComponentArray<FlammableComponent>();
-                case ComponentType.Inventory:
-                    return new ComponentArray<InventoryComponent>();
-                case ComponentType.Equipment:
-                    return new ComponentArray<EquipmentComponent>();
-                case ComponentType.Audio:
-                    return new ComponentArray<AudioComponent>();
-                case ComponentType.Weapon:
-                    return new ComponentArray<WeaponComponent>();
-                case ComponentType.PickUpOnInteract:
-                    return new ComponentArray<PickUpOnInteractComponent>();
-                case ComponentType.Max:
-                    break;
-            }
-
-            return null;
         }
     }
 }

@@ -7,14 +7,15 @@ namespace Transendence.Core
     {
         public int CurrentEquippedWeaponIndex;
         public int PrevEquippedWeaponIndex;
-        [HideInInspector] public int[] EquippedWeaponEntityIds = new int[3];
+        [HideInInspector] public int[] EquippedItemEntityIds = new int[3];
         public Transform WeaponSpawnPoint;
         public Transform WeaponShootPoint;
         public LayerMask ShootLayer;
 
         private void Awake()
         {
-            EquippedWeaponEntityIds = new int[3];
+            EquippedItemEntityIds = new int[3] { -1, -1, -1 };
+            CurrentEquippedWeaponIndex = -1;
         }
 
         public ComponentType GetComponentType()
@@ -22,9 +23,10 @@ namespace Transendence.Core
             return ComponentType.Equipment;
         }
 
-        public void UpdateEquippedWeapon()
+        public void UpdateWeaponEquipped(int weaponIndex)
         {
-            
+            PrevEquippedWeaponIndex = CurrentEquippedWeaponIndex;
+            CurrentEquippedWeaponIndex = weaponIndex;
         }
     }
 

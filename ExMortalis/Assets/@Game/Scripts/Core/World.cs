@@ -33,7 +33,8 @@ namespace Transendence.Core
 
             EntityContainer = new EntityContainer();
 
-            LoadSystems();
+            LoadSystems();  
+
         }
 
         public void AddPostProcessEvent(IPostProcessEvent processEvent)
@@ -78,7 +79,7 @@ namespace Transendence.Core
             {
                 var system = (BaseSystem)Activator.CreateInstance(type.Type);
 
-                 Debug.Log($"Loading system: {type.Type.Name}");
+                Debug.Log($"Loading system: {type.Type.Name}");
 
                 switch (type.Attribute.SystemType)
                 {
