@@ -10,6 +10,7 @@ namespace Transendence.Core
 {
     public class EntityContainer
     {
+        public const int MAX_ENTITIES = 200;
         public Entity[] Entities;
         public ComponentArray[] Components;
 
@@ -18,7 +19,7 @@ namespace Transendence.Core
 
         public EntityContainer()
         {
-            Entities = new Entity[World.MAX_ENTITIES];
+            Entities = new Entity[MAX_ENTITIES];
 
             CreateComponentArrays();
         }
@@ -61,7 +62,7 @@ namespace Transendence.Core
 
                 var genericComponentArrayType = typeof(ComponentArray<>).MakeGenericType(type);
 
-                Components[componentType] = (ComponentArray)Activator.CreateInstance(genericComponentArrayType, World.MAX_ENTITIES);
+                Components[componentType] = (ComponentArray)Activator.CreateInstance(genericComponentArrayType, MAX_ENTITIES);
 
                 Debug.Log($"Creating component array for {type.Name}");
             }
@@ -83,7 +84,7 @@ namespace Transendence.Core
                 AvailableEntityId++;
             }
 
-            if (entity.Id > World.MAX_ENTITIES)
+            if (entity.Id > MAX_ENTITIES)
             {
                 GameObject.Destroy(entityPrefab); //This could be a poolable object
 

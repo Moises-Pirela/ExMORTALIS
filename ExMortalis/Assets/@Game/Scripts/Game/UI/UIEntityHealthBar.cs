@@ -1,20 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Transendence.Game
+namespace Transendence.Game.UI
 {
-    public class UIEntityHealthBar : MonoBehaviour
+
+    public struct EntityHealthBarUIData : IUIData
     {
+        public float CurrentHealth;
+        public float MaxHealth;
+        public string Name;
+    }
+
+    public class UIEntityHealthBar : BaseUI, IUIWithData
+    {
+        public const string UI_PATH = "UI/UI_EntityHealthBar";
         public Image HealthBarImage;
         public TextMeshProUGUI EntityNameText;
 
-        public void UpdateHealthBar(float currentHealth, float maxHealth, string name)
+        public UICommand GetUpdateCommand()
         {
-            HealthBarImage.fillAmount = currentHealth/maxHealth;
-            EntityNameText.text = name;
+            return UICommand.EntityHealthBarUpdate;
+        }
+
+        public void UpdateUI(IUIData uIData)
+        {
+            EntityHealthBarUIData data = (EntityHealthBarUIData)uIData;
+
+            HealthBarImage.fillAmount = data.CurrentHealth / data.MaxHealth;
+            EntityNameText.text = data.Name;
         }
     }
 }

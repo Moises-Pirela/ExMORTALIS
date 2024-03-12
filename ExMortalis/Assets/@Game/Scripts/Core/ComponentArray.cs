@@ -15,7 +15,7 @@ namespace Transendence.Core
     {
         public Component[] Components;
 
-        public ComponentArray(int size = World.MAX_ENTITIES)
+        public ComponentArray(int size = EntityContainer.MAX_ENTITIES) 
         {
             Components = new Component[size];
         }

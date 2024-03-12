@@ -2,38 +2,35 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Security;
+using Transendence.Core;
 using Transendence.Core.Configs;
 using Transendence.Core.Postprocess;
 using Transendence.Core.Systems;
 using Transendence.Utilities;
-using Unity.Burst;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.UIElements;
 
 namespace Transendence.Core
 {
-    public class World : MonoBehaviour
+    public class World
     {
         public static World Instance;
         public static int PLAYER_ENTITY_ID = -1;
-        public const int MAX_ENTITIES = 200;
         public EntityContainer EntityContainer;
         public WorldConfig WorldConfig;
-        public GameObject PlayerPrefab;
         private List<BaseSystem> Systems = new List<BaseSystem>();
         private List<BaseSystem> FixedSystems = new List<BaseSystem>();
         private List<BaseSystem> PostProcessSystems = new List<BaseSystem>();
         private List<IPostProcessEvent> PostProcesses = new List<IPostProcessEvent>();
 
-        public void Awake()
+        public World(WorldConfig config)
         {
             Instance = this;
 
             EntityContainer = new EntityContainer();
 
-            LoadSystems();  
+            WorldConfig = config;
+
+            LoadSystems();
 
         }
 
@@ -42,7 +39,7 @@ namespace Transendence.Core
             PostProcesses.Add(processEvent);
         }
 
-        private void Update()
+        public void Tick()
         {
             foreach (var system in Systems)
             {
@@ -57,7 +54,7 @@ namespace Transendence.Core
             PostProcesses.Clear();
         }
 
-        private void FixedUpdate()
+        public void FixedTick()
         {
             foreach (var fixedSystem in FixedSystems)
             {
