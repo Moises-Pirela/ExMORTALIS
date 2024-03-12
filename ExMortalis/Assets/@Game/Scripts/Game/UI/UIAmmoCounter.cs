@@ -7,13 +7,21 @@ using Transendence.Core;
 namespace Transendence.Game.UI
 {
 
-    public class UIAmmoCounter : MonoBehaviour
+    public struct AmmoCounterUIData : IUIData
     {
-        public TextMeshProUGUI AmmoCounterText;
+        public AmmoCount AmmoCount;
+    }
 
-        public void UpdateText(AmmoCount currentAmmoCount)
+    public class UIAmmoCounter : BaseUI, IUIWithData
+    {
+        public static string UI_PATH = "UI/UI_AmmoCounter";
+        public TextMeshProUGUI AmmoCounterText;
+        public void UpdateUI(IUIData uIData)
         {
-            AmmoCounterText.text = $"{currentAmmoCount.CurrentCount} / {currentAmmoCount.MaxCount}";
+            AmmoCounterUIData ammoCounterUIData = (AmmoCounterUIData)uIData;
+            AmmoCount ammoCount = ammoCounterUIData.AmmoCount;
+
+            AmmoCounterText.text = $"{ammoCount.CurrentCount} / {ammoCount.MaxCount}";
         }
     }
 }

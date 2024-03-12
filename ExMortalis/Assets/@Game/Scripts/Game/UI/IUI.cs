@@ -14,7 +14,11 @@ namespace Transendence.Game.UI
 
     public enum UICommand
     {
+        EntityHealthBarShow,
+        EntityHealthBarHide,
         EntityHealthBarUpdate,
-        AmmoCounter,
+        AmmoCounterShow,
+        AmmoCounterHide,
+        AmmoCounterUpdate,
     }
 }
