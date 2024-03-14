@@ -22,6 +22,7 @@ namespace Transendence.Core.Configs
         public float MagazineSize;
         public float RecoilStrength;
         public float BloomSize;
+        [Range(1, 100)] public float KnockbackForce;
         public Texture ReticleTexture;
         public AudioClip[] FireClips;
         public AudioClip EmptyFireClip;

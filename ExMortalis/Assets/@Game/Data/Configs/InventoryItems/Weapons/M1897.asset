@@ -29,7 +29,8 @@ MonoBehaviour:
   MaxRounds: 24
   MagazineSize: 6
   RecoilStrength: 50
-  BloomSize: 50
+  BloomSize: 25
+  KnockbackForce: 100
   ReticleTexture: {fileID: 0}
   FireClips:
   - {fileID: 8300000, guid: a171c0ea4e918bc458f34be7a9455214, type: 3}

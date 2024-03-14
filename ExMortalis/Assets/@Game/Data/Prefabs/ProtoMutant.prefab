@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 5435359938835418820}
   - component: {fileID: 9169197893351527864}
   - component: {fileID: 3038597851783359906}
+  - component: {fileID: 5087924581105870580}
   - component: {fileID: 3985938630333943570}
-  m_Layer: 0
+  - component: {fileID: 2061050506919909443}
+  m_Layer: 12
   m_Name: ProtoMutant
-  m_TagString: Untagged
+  m_TagString: Flesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c19311eb3d1c1f4882bb602ec2cddaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Render: {fileID: 11400000, guid: 8beb5cee066660947a213596679291d5, type: 2}
   IsStartingEntity: 1
   Id: -1
 --- !u!114 &3038597851783359906
@@ -66,6 +69,33 @@ MonoBehaviour:
     FlatBonus: 0
     PercentBonus: 0
   CurrentHealth: 0
+--- !u!114 &5087924581105870580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8391307003900090480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ef2c4849fa39a41811e93a71351678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoreObjects:
+  - {fileID: 8277930935112284677}
+  - {fileID: 7464132182033875544}
+  - {fileID: 8665158264704551666}
+  - {fileID: 2556869136310125861}
+  - {fileID: 181595257172574498}
+  - {fileID: 5684493260602564246}
+  - {fileID: 7255519230906305904}
+  - {fileID: 1909269221412444803}
+  - {fileID: 151251932335375825}
+  - {fileID: 155729504422497590}
+  - {fileID: 56389723630224144}
+  GoreSimulator: {fileID: 3985938630333943570}
+  HitEffectPrefab: {fileID: 4393844819492798015, guid: 50773d6183234484ea45b69bcb6005c3,
+    type: 3}
 --- !u!114 &3985938630333943570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,8 +118,14 @@ MonoBehaviour:
   - rid: 2210411188410908682
   cutModules:
   - rid: 2210411188410908684
+  - rid: 2210411208948318238
+  - rid: 2210411208948318239
+  - rid: 2210411208948318240
   explosionModules:
   - rid: 2210411188410908685
+  - rid: 2210411208948318241
+  - rid: 2210411208948318242
+  - rid: 2210411232407846912
   ragdollModules:
   - rid: 2210411188410908683
   componentColor: {r: 0, g: 0, b: 0, a: 0}
@@ -442,17 +478,18 @@ MonoBehaviour:
         disableBones: 1
         components:
         - {fileID: 6776695914266653838}
+        - {fileID: 2061050506919909443}
     - rid: 2210411188410908684
       type: {class: SubModulePhysics, ns: PampelGames.GoreSimulator, asm: PG.GoreSimulator}
       data:
         _goreSimulator: {fileID: 3985938630333943570}
         moduleType: 0
-        collider: 3
+        collider: 1
         vertexLimit: 2000
         fallbackCollider: 0
-        layer: 0
-        tag: 
-        optimizeMesh: 0
+        layer: 13
+        tag: Limbs
+        optimizeMesh: 1
         rigidbody: 1
         drag: 0
         angularDrag: 0.05
@@ -461,15 +498,111 @@ MonoBehaviour:
       data:
         _goreSimulator: {fileID: 3985938630333943570}
         moduleType: 1
-        collider: 3
+        collider: 1
         vertexLimit: 2000
         fallbackCollider: 0
-        layer: 0
-        tag: 
-        optimizeMesh: 0
+        layer: 13
+        tag: Limbs
+        optimizeMesh: 1
         rigidbody: 1
         drag: 0
         angularDrag: 0.05
+    - rid: 2210411208948318238
+      type: {class: SubModuleCutRagdoll, ns: PampelGames.GoreSimulator, asm: PG.GoreSimulator}
+      data:
+        _goreSimulator: {fileID: 3985938630333943570}
+        moduleType: 0
+        minimumBoneAmount: 2
+        drag: 0.5
+        angularDrag: 1.5
+    - rid: 2210411208948318239
+      type: {class: SubModuleDecal, ns: PampelGames.GoreSimulator, asm: PG.GoreSimulator}
+      data:
+        _goreSimulator: {fileID: 3985938630333943570}
+        moduleType: 0
+        radius: 0.25
+        strength: 1
+        uvTransformation: {fileID: 2100000, guid: cd93ccc33e6d64e2ba3d7bfec3328b34,
+          type: 2}
+    - rid: 2210411208948318240
+      type: {class: SubModuleParticleEffects, ns: PampelGames.GoreSimulator, asm: PG.GoreSimulator}
+      data:
+        _goreSimulator: {fileID: 3985938630333943570}
+        moduleType: 0
+        particleClasses:
+        - spawnType: 0
+          effect: {fileID: 0}
+          particle: {fileID: 4242707960745226077, guid: 5ab70116cb13bb24f91cf44ef04f09aa,
+            type: 3}
+          autoDespawn: 0
+          autoDespawnTimer: 5
+          positionExpl: 0
+          maxPosition: 5
+          setParentExplosionParts: 1
+          rotationExpl: 1
+          rotationCut: 0
+          setParent: 1
+        addedType: GoreModuleCut
+    - rid: 2210411208948318241
+      type: {class: SubModuleParticleEffects, ns: PampelGames.GoreSimulator, asm: PG.GoreSimulator}
+      data:
+        _goreSimulator: {fileID: 3985938630333943570}
+        moduleType: 1
+        particleClasses:
+        - spawnType: 0
+          effect: {fileID: 0}
+          particle: {fileID: 686832329092492159, guid: 50e706ce4d3bd6448842c164eb8a89bc,
+            type: 3}
+          autoDespawn: 0
+          autoDespawnTimer: 5
+          positionExpl: 2
+          maxPosition: 5
+          setParentExplosionParts: 1
+          rotationExpl: 1
+          rotationCut: 0
+          setParent: 2
+        addedType: GoreModuleExplosion
+    - rid: 2210411208948318242
+      type: {class: SubModuleDecal, ns: PampelGames.GoreSimulator, asm: PG.GoreSimulator}
+      data:
+        _goreSimulator: {fileID: 3985938630333943570}
+        moduleType: 1
+        radius: 0.25
+        strength: 1
+        uvTransformation: {fileID: 2100000, guid: cd93ccc33e6d64e2ba3d7bfec3328b34,
+          type: 2}
+    - rid: 2210411232407846912
+      type: {class: SubModuleDisableComponents, ns: PampelGames.GoreSimulator, asm: PG.GoreSimulator}
+      data:
+        _goreSimulator: {fileID: 3985938630333943570}
+        moduleType: 1
+        disableBones: 1
+        components:
+        - {fileID: 6776695914266653838}
+        - {fileID: 2061050506919909443}
+--- !u!136 &2061050506919909443
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8391307003900090480}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.29
+  m_Height: 2.46
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.24, z: -0.03}
 --- !u!1001 &9078285818394788450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -478,6 +611,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5435359938835418820}
     m_Modifications:
+    - target: {fileID: 132855319766441264, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768007883982696091, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332559527185937182, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429939383155079542, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464248503951435775, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598227330336402321, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982349833737521534, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5620107538685616773, guid: c187c78f016ab674eb8b6c46eb6cb132,
         type: 3}
       propertyPath: m_Name
@@ -537,6 +705,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358761357596296891, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060657776903808619, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128921442346004674, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628320428180222629, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

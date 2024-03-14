@@ -30,6 +30,7 @@ MonoBehaviour:
   MagazineSize: 8
   RecoilStrength: 20
   BloomSize: 0
+  KnockbackForce: 20
   ReticleTexture: {fileID: 0}
   FireClips:
   - {fileID: 8300000, guid: 7e66ffefaa7e0f448ae23eda521d4261, type: 3}

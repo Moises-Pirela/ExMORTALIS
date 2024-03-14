@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Transendence.Core.Configs;
 using Transendence.Core.Postprocess;
 using Transendence.Utilities;
@@ -7,6 +8,7 @@ using UnityEngine;
 
 namespace Transendence.Core.Systems
 {
+
     [System(SystemAttributeType.PostProcess)]
     public class EquipWeaponSystem : BaseSystem
     {

@@ -25,6 +25,7 @@
         Weapon,
         PickUpOnInteract,
         AmmoItemPickup,
+        Gore,
         Max,
     }
 

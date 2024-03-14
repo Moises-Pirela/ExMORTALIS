@@ -14,6 +14,7 @@ namespace Transendence.Game.UI
 
         public void Awake()
         {
+            Instance = this;
             SimWorld = new World(WorldConfig);
             UIManager = new UIManager();
         }

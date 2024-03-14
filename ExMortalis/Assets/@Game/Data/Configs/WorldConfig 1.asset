@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: WorldConfig
-  m_EditorClassIdentifier: Transendence.Core:Transendence.Core.Configs:WorldConfig
+  m_Script: {fileID: 11500000, guid: db88843fc7cae0047be64e5f391f8edf, type: 3}
+  m_Name: WorldConfig 1
+  m_EditorClassIdentifier: 
   Id: 0
   Name: 
+  EffectsLookupConfig: {fileID: 11400000, guid: bf71ee629b2f10642802fe553f7b81c9,
+    type: 2}
   BuffDebuffConfigs:
   - {fileID: 11400000, guid: cf65bd9c8546a904d98aaabd13efdb99, type: 2}
   AbilityConfigs:
@@ -23,3 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 11cd45764413dfa41a1df0b9aeeef958, type: 2}
   EquipmentConfigs:
   - {fileID: 11400000, guid: 40a70eec0ef91fe4bb78bb0206548018, type: 2}
+  - {fileID: 11400000, guid: 11cd45764413dfa41a1df0b9aeeef958, type: 2}

@@ -17,6 +17,7 @@ namespace EFPController {
             public const int PlayerIgnore = 1 << Layer.PlayerIgnore;
             public const int PlayerCollide = 1 << Layer.PlayerCollide;
             public const int PlayerItems = 1 << Layer.PlayerItems;
+            public const int Limbs = 1 << Layer.Limbs;
         }
 
         public static class Layer
@@ -28,6 +29,7 @@ namespace EFPController {
             public const int PlayerIgnore = 9;
             public const int PlayerCollide = 8;
             public const int PlayerItems = 11;
+            public const int Limbs = 13;
         }
 
         public static class Tags
@@ -35,6 +37,8 @@ namespace EFPController {
             public const string Untagged = "Untagged";
             public const string Climbable = "Climbable";
             public const string Interactable = "Interactable";
+            public const string Entities = "Entities";
+
         }
 
         private void Awake()

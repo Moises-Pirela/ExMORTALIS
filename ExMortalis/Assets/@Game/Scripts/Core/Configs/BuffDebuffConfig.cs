@@ -20,13 +20,4 @@ namespace Transendence.Core.Configs
         [Range(1f, 3f)] public int MaxStacks;
         [Range(0.1f, 1f)] public float MaxPerc;
     }
-
-    [CreateAssetMenu(menuName = "Tools/Configs/World", fileName = "WorldConfig")]
-    public class WorldConfig : BaseScriptableConfig
-    {
-        public BuffDebuffConfig[] BuffDebuffConfigs;
-        public AbilityConfig[] AbilityConfigs;
-        public WeaponConfig[] WeaponConfigs;
-        public EquipmentConfig[] EquipmentConfigs;
-    }
 }

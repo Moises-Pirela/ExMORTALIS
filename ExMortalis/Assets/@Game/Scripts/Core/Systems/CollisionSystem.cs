@@ -100,7 +100,7 @@ namespace Transendence.Core.Systems
 
                     if (World.Instance.EntityContainer.GetComponent(entity.Id, ComponentType.DestroyOnHit, out DestroyOnHitComponent destroyOnHitComponent))
                     {
-                        World.Instance.EntityContainer.RemoveEntity(entity.Id);
+                        World.Instance.EntityContainer.RemoveEntity(entity.Id, false, -1);
                     }
                 }
             }

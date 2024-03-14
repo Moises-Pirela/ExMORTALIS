@@ -112,7 +112,7 @@ namespace Transendence.Core
             return entity.Id;
         }
 
-        public void RemoveEntity(int entityID)
+        public void RemoveEntity(int entityID, bool destroy, float destroyTime)
         {
             Entity entity = Entities[entityID];
             IComponent[] components = entity.GetComponents<IComponent>();
@@ -123,10 +123,11 @@ namespace Transendence.Core
             }
 
             RecycledEntityId = entityID;
-
+            
             Entities[entityID].Id = -1;
 
-            GameObject.Destroy(entity.gameObject); //NOTE: We can pool these entities to make sure we're being as efficient as possible with entity creation and removal
+            if (destroy)
+                GameObject.Destroy(entity.gameObject, destroyTime); //NOTE: We can pool these entities to make sure we're being as efficient as possible with entity creation and removal
         }
     }
 }

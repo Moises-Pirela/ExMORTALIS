@@ -8,6 +8,8 @@ using EFPController.Utils;
 using EFPController.Extras;
 using Transendence.Core.Postprocess;
 using Transendence.Core;
+using Transendence.Game.UI;
+
 
 
 #if UNITY_EDITOR
@@ -38,6 +40,7 @@ namespace EFPController
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public LayerMask interactLayerMask = Game.LayerMask.Default;
+        public LayerMask entityLayerMask = Game.LayerMask.Default;
         [Tooltip("Distance that player can pickup and activate items.")]
         public float interactDistance = 2.1f;
         public float interactCastRadius = 0.05f;
@@ -138,6 +141,51 @@ namespace EFPController
             if (canInteractable)
             {
                 Interactable();
+            }
+
+            CheckForEntityHealth();
+        }
+
+        public bool ShouldHide = false;
+        public float HideTime;
+        private void CheckForEntityHealth()
+        {
+            Entity entity = null;
+
+            RaycastHit hitUsable;
+
+            Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+
+            Physics.Raycast(ray, out hitUsable, 1000f, entityLayerMask, QueryTriggerInteraction.Ignore);
+
+            if (hitUsable.collider != null)
+            {
+                entity = hitUsable.collider.gameObject.GetComponent<Entity>();
+
+                if (entity == null) return;
+
+                if (GameManager.Instance.SimWorld.EntityContainer.GetComponent<HealthComponent>(entity.Id, ComponentType.Health, out HealthComponent healthComponent))
+                {
+                    GameManager.Instance.UIManager.SendCommand(UICommand.EntityHealthBarShow);
+
+                    EntityHealthBarUIData uiData = new EntityHealthBarUIData()
+                    {
+                        CurrentHealth = healthComponent.CurrentHealth,
+                        MaxHealth = healthComponent.MaxHealth.CalculateValue(),
+                        Name = entity.Render == null ? "NO_RENDER_ERROR" : entity.Render.DisplayName
+                    };
+                    
+                    GameManager.Instance.UIManager.SendUpdateCommand(UICommand.EntityHealthBarUpdate, uiData);
+
+                    HideTime = Time.time + 1.25f;
+                }
+            }
+            else
+            {
+                if (HideTime < Time.time)
+                {
+                    GameManager.Instance.UIManager.SendCommand(UICommand.EntityHealthBarHide);
+                }
             }
         }
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Security.Principal;
 using Transendence.Core;
+using Transendence.Core.Configs;
 using Transendence.Core.Postprocess;
 using UnityEditor;
 using UnityEngine;
@@ -16,6 +17,7 @@ public enum EEntityFlags
 
 public class Entity : MonoBehaviour
 {
+    public RenderConfig Render;
     [SerializeField] private bool IsStartingEntity = false;
     [HideInInspector] public int Id = -1;
     public EntityFlags Flags;

@@ -7,6 +7,9 @@ TagManager:
   - Climbable
   - Interactable
   - Projectile
+  - Limbs
+  - Flesh
+  - Concrete
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - Player
   - PlayerItems
   - Entities
-  - 
+  - Limbs
   - 
   - 
   - 

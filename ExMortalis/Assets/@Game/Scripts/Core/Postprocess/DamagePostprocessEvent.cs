@@ -7,6 +7,7 @@ namespace Transendence.Core.Postprocess
         public int TargetEntityId;
         public int DamageDealerEntityId;
         public float Damage;
+        public Vector3 KnockbackForce;
     }
 
     public struct CreateEntityPostprocessEvent : IPostProcessEvent
@@ -14,6 +15,13 @@ namespace Transendence.Core.Postprocess
         public GameObject EntityGO;
         public Vector3 SpawnPosition;
         public Vector3 SpawnRotation;
+    }
+
+    public struct KillEntityPostprocessEvent : IPostProcessEvent
+    {
+        public int EntityId;
+        public bool DestroyGO;
+        public float DestroyTimer;
     }
 }
 
