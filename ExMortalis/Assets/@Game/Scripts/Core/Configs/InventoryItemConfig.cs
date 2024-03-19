@@ -6,7 +6,8 @@ namespace Transendence.Core.Configs
     public enum ItemType
     {
         Junk,
-        Equippable
+        Equippable,
+        Ammo,
     }
 
     [CreateAssetMenu(menuName = "Tools/Configs/Inventory", fileName = "InventoryItem")]
@@ -16,5 +17,6 @@ namespace Transendence.Core.Configs
         public Sprite ItemSprite;
         public ItemType ItemType;
         public Vector2Int GridSize;
+        public int MaxStacks;
     }
 }

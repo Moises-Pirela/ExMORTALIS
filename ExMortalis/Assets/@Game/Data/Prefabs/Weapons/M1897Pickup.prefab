@@ -124,7 +124,7 @@ Transform:
   - {fileID: 4320644152195146506}
   - {fileID: 4757654893364768711}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &4042621279562199787
 AudioSource:
@@ -253,8 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62029c6b3e53434888c43e99cfeb3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventoryItemConfig: {fileID: 11400000, guid: 11cd45764413dfa41a1df0b9aeeef958,
-    type: 2}
+  WeaponConfig: {fileID: 11400000, guid: 11cd45764413dfa41a1df0b9aeeef958, type: 2}
 --- !u!114 &7637651672470913832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c19311eb3d1c1f4882bb602ec2cddaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Render: {fileID: 0}
   IsStartingEntity: 1
   Id: -1
 --- !u!65 &1757642631098191958

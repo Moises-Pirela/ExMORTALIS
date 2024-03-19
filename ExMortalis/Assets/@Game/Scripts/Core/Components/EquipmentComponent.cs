@@ -34,6 +34,6 @@ namespace Transendence.Core
     {
         public int CurrentCount;
         public int MaxCount;
-        public AmmoType AmmoType;
+        public DamageType AmmoType;
     }
 }

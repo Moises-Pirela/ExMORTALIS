@@ -8,7 +8,6 @@ namespace Transendence.Core.Configs
         public EffectsLookupConfig EffectsLookupConfig;
         public BuffDebuffConfig[] BuffDebuffConfigs;
         public AbilityConfig[] AbilityConfigs;
-        public WeaponConfig[] WeaponConfigs;
-        public EquipmentConfig[] EquipmentConfigs;
+        public InventoryItemConfig[] InventoryItemConfigs;
     }
 }

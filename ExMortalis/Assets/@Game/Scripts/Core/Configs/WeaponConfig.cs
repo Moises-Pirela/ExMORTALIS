@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Transendence.Core.Configs
 {
-    public enum WeaponType { Ranged, Melee, Throwable }
-    public enum AmmoType { Kinetic, Neurobiotic, Energy, Max }
+    public enum WeaponType { RANGED, MELEE, THROWABLE }
+    public enum AmmoWeaponType { SHOTGUN, PISTOL, MAGNUM }
 
     [CreateAssetMenu(menuName = "Tools/Configs/Weapons", fileName = "Weapon")]
     public class WeaponConfig : EquipmentConfig
@@ -13,7 +13,7 @@ namespace Transendence.Core.Configs
         [Header("Weapon")]
         public GameObject WeaponEntityPrefab;
         public WeaponType WeaponType;
-        public AmmoType AmmoType;
+        public DamageType AmmoType;
         public float Damage;
         public float FireRate;
         public int BulletsPerShot;

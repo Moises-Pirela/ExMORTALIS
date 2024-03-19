@@ -220,6 +220,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "OpenTabMenu",
+                    "type": "Button",
+                    "id": "5fdf7d03-f942-4814-ab24-fc876d1997dc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -638,6 +647,67 @@
                     "processors": "Clamp(min=-1,max=1)",
                     "groups": "Keyboard And Mouse",
                     "action": "Cycle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "909e2f2d-1d70-4ae5-9574-5d110b81b199",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "OpenTabMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2318f7d8-70a1-4fac-ad6f-efc89446ecea",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "OpenTabMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "2c7f5f83-430b-4cae-b563-d2ee8c4d9218",
+            "actions": [
+                {
+                    "name": "CloseTabMenu",
+                    "type": "Button",
+                    "id": "a8873d91-c948-4147-8f9e-081ed06cdda2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "497b2d90-96b7-42a2-a1d6-c7fd9b784a23",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "CloseTabMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2fbfecb6-f8cd-4017-9171-3400515e45d3",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "CloseTabMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

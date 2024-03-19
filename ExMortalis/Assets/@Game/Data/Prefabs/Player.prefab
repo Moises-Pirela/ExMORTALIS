@@ -1681,6 +1681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c19311eb3d1c1f4882bb602ec2cddaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Render: {fileID: 0}
   IsStartingEntity: 1
   Id: -1
 --- !u!114 &765934776306546314
@@ -1760,6 +1761,9 @@ MonoBehaviour:
   interactLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  entityLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
   interactDistance: 2
   interactCastRadius: 0.2
   weaponRoot: {fileID: 7803923439367786485}
@@ -1781,6 +1785,8 @@ MonoBehaviour:
   returnToGroundAltitude: -30
   colliders:
   - {fileID: 4679901313404533793}
+  ShouldHide: 0
+  HideTime: 0
 --- !u!114 &6913170537286112299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2136,7 +2142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0229087ffec39e749bc9421fb5a5fb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventorySize: 0
+  InventorySize: {x: 4, y: 3}
 --- !u!114 &1820241425469798899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2151,12 +2157,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentEquippedWeaponIndex: 0
   PrevEquippedWeaponIndex: 0
-  EquippedWeaponEntityIds: 000000000000000000000000
+  EquippedItemEntityIds: 000000000000000000000000
   WeaponSpawnPoint: {fileID: 524189125563487746}
   WeaponShootPoint: {fileID: 3822170599207865801}
   ShootLayer:
     serializedVersion: 2
-    m_Bits: 4305
+    m_Bits: 12497
 --- !u!1 &4183889164675125449
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,7 +3941,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4087
+    m_Bits: 16375
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

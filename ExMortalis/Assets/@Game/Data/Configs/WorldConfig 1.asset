@@ -20,9 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf65bd9c8546a904d98aaabd13efdb99, type: 2}
   AbilityConfigs:
   - {fileID: 11400000, guid: eba602a47563efc43b763ec3cc9cb31c, type: 2}
-  WeaponConfigs:
-  - {fileID: 11400000, guid: 40a70eec0ef91fe4bb78bb0206548018, type: 2}
-  - {fileID: 11400000, guid: 11cd45764413dfa41a1df0b9aeeef958, type: 2}
-  EquipmentConfigs:
+  InventoryItemConfigs:
+  - {fileID: 11400000, guid: 1a66b1ae84e613a4eaf3a572b50e8059, type: 2}
   - {fileID: 11400000, guid: 40a70eec0ef91fe4bb78bb0206548018, type: 2}
   - {fileID: 11400000, guid: 11cd45764413dfa41a1df0b9aeeef958, type: 2}

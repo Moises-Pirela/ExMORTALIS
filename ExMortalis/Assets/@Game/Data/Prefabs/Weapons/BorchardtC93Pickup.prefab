@@ -37,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 6606201650075071021}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!33 &270851459284807641
 MeshFilter:
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c19311eb3d1c1f4882bb602ec2cddaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Render: {fileID: 0}
   IsStartingEntity: 1
   Id: -1
 --- !u!114 &8246956272760790388
@@ -251,8 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62029c6b3e53434888c43e99cfeb3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventoryItemConfig: {fileID: 11400000, guid: 40a70eec0ef91fe4bb78bb0206548018,
-    type: 2}
+  WeaponConfig: {fileID: 11400000, guid: 40a70eec0ef91fe4bb78bb0206548018, type: 2}
 --- !u!1 &554870183728212357
 GameObject:
   m_ObjectHideFlags: 0

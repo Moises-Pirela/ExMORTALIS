@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3038597851783359906}
   - component: {fileID: 5087924581105870580}
   - component: {fileID: 3985938630333943570}
-  - component: {fileID: 2061050506919909443}
   m_Layer: 12
   m_Name: ProtoMutant
   m_TagString: Flesh
@@ -35,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 3613343529742499910}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9169197893351527864
 MonoBehaviour:
@@ -478,7 +477,7 @@ MonoBehaviour:
         disableBones: 1
         components:
         - {fileID: 6776695914266653838}
-        - {fileID: 2061050506919909443}
+        - {fileID: 0}
     - rid: 2210411188410908684
       type: {class: SubModulePhysics, ns: PampelGames.GoreSimulator, asm: PG.GoreSimulator}
       data:
@@ -579,30 +578,7 @@ MonoBehaviour:
         disableBones: 1
         components:
         - {fileID: 6776695914266653838}
-        - {fileID: 2061050506919909443}
---- !u!136 &2061050506919909443
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8391307003900090480}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.29
-  m_Height: 2.46
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.24, z: -0.03}
+        - {fileID: 0}
 --- !u!1001 &9078285818394788450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -715,6 +691,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060657776903808619, guid: c187c78f016ab674eb8b6c46eb6cb132,
+        type: 3}
+      propertyPath: m_TagString
+      value: Head
       objectReference: {fileID: 0}
     - target: {fileID: 8128921442346004674, guid: c187c78f016ab674eb8b6c46eb6cb132,
         type: 3}
@@ -1195,10 +1176,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.08935307
+  m_Radius: 0.15
   m_Height: 0.24631667
   m_Direction: 0
-  m_Center: {x: -0.00000047035093, y: 0.0000000672319, z: 0.00000003054734}
+  m_Center: {x: -0.1, y: 0.0000000672319, z: 0.00000003054734}
 --- !u!54 &2762507463344072785
 Rigidbody:
   m_ObjectHideFlags: 0

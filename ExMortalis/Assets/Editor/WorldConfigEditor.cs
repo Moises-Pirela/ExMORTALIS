@@ -25,14 +25,9 @@ namespace Transendence.EditorTools
                 PopulateAbilityConfigs(worldConfig);
             }
 
-             if (GUILayout.Button("Populate weapon Configs"))
+             if (GUILayout.Button("Populate Inventory Configs"))
             {
-                PopulateWeaponConfigs(worldConfig);
-            }
-
-            if (GUILayout.Button("Populate equipemnt Configs"))
-            {
-                PopulateEquipmentConfigs(worldConfig);
+                PopulateInventoryItemConfigs(worldConfig);
             }
         }
 
@@ -56,44 +51,24 @@ namespace Transendence.EditorTools
             Debug.Log("Buff/Debuff Configs Populated Successfully!");
         }
 
-        private void PopulateWeaponConfigs(WorldConfig worldConfig)
+        private void PopulateInventoryItemConfigs(WorldConfig worldConfig)
         {
-            string[] guids = AssetDatabase.FindAssets($"t:{nameof(WeaponConfig)}");
+            string[] guids = AssetDatabase.FindAssets($"t:{nameof(InventoryItemConfig)}");
 
 
-            worldConfig.WeaponConfigs = new WeaponConfig[guids.Length];
+            worldConfig.InventoryItemConfigs = new InventoryItemConfig[guids.Length];
 
             for (int i = 0; i < guids.Length; i++)
             {
                 string assetPath = AssetDatabase.GUIDToAssetPath(guids[i]);
-                worldConfig.WeaponConfigs[i] = AssetDatabase.LoadAssetAtPath<WeaponConfig>(assetPath);
-                worldConfig.WeaponConfigs[i].Id = i;
+                worldConfig.InventoryItemConfigs[i] = AssetDatabase.LoadAssetAtPath<InventoryItemConfig>(assetPath);
+                worldConfig.InventoryItemConfigs[i].Id = i;
             }
 
             EditorUtility.SetDirty(worldConfig);
             AssetDatabase.SaveAssets();
 
-            Debug.Log("Weapon configs Populated Successfully!");
-        }
-
-        private void PopulateEquipmentConfigs(WorldConfig worldConfig)
-        {
-            string[] guids = AssetDatabase.FindAssets($"t:{nameof(EquipmentConfig)}");
-
-
-            worldConfig.EquipmentConfigs = new EquipmentConfig[guids.Length];
-
-            for (int i = 0; i < guids.Length; i++)
-            {
-                string assetPath = AssetDatabase.GUIDToAssetPath(guids[i]);
-                worldConfig.EquipmentConfigs[i] = AssetDatabase.LoadAssetAtPath<EquipmentConfig>(assetPath);
-                worldConfig.EquipmentConfigs[i].Id = i;
-            }
-
-            EditorUtility.SetDirty(worldConfig);
-            AssetDatabase.SaveAssets();
-
-            Debug.Log("Equipment Configs Populated Successfully!");
+            Debug.Log("Inventory Item configs Populated Successfully!");
         }
 
 

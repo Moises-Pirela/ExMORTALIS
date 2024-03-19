@@ -23,7 +23,7 @@
         Equipment,
         Audio,
         Weapon,
-        PickUpOnInteract,
+        WeaponPickUp,
         AmmoItemPickup,
         Gore,
         Max,

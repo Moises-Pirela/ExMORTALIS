@@ -242,6 +242,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenTabMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""5fdf7d03-f942-4814-ab24-fc876d1997dc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -662,6 +671,67 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Cycle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""909e2f2d-1d70-4ae5-9574-5d110b81b199"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""OpenTabMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2318f7d8-70a1-4fac-ad6f-efc89446ecea"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""OpenTabMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""2c7f5f83-430b-4cae-b563-d2ee8c4d9218"",
+            ""actions"": [
+                {
+                    ""name"": ""CloseTabMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""a8873d91-c948-4147-8f9e-081ed06cdda2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""497b2d90-96b7-42a2-a1d6-c7fd9b784a23"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""CloseTabMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2fbfecb6-f8cd-4017-9171-3400515e45d3"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CloseTabMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -733,6 +803,10 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Gameplay_SecondaryFire = m_Gameplay.FindAction("SecondaryFire", throwIfNotFound: true);
         m_Gameplay_Reload = m_Gameplay.FindAction("Reload", throwIfNotFound: true);
         m_Gameplay_Cycle = m_Gameplay.FindAction("Cycle", throwIfNotFound: true);
+        m_Gameplay_OpenTabMenu = m_Gameplay.FindAction("OpenTabMenu", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_CloseTabMenu = m_UI.FindAction("CloseTabMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -818,6 +892,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_SecondaryFire;
     private readonly InputAction m_Gameplay_Reload;
     private readonly InputAction m_Gameplay_Cycle;
+    private readonly InputAction m_Gameplay_OpenTabMenu;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -846,6 +921,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @SecondaryFire => m_Wrapper.m_Gameplay_SecondaryFire;
         public InputAction @Reload => m_Wrapper.m_Gameplay_Reload;
         public InputAction @Cycle => m_Wrapper.m_Gameplay_Cycle;
+        public InputAction @OpenTabMenu => m_Wrapper.m_Gameplay_OpenTabMenu;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -927,6 +1003,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Cycle.started += instance.OnCycle;
             @Cycle.performed += instance.OnCycle;
             @Cycle.canceled += instance.OnCycle;
+            @OpenTabMenu.started += instance.OnOpenTabMenu;
+            @OpenTabMenu.performed += instance.OnOpenTabMenu;
+            @OpenTabMenu.canceled += instance.OnOpenTabMenu;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -1003,6 +1082,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Cycle.started -= instance.OnCycle;
             @Cycle.performed -= instance.OnCycle;
             @Cycle.canceled -= instance.OnCycle;
+            @OpenTabMenu.started -= instance.OnOpenTabMenu;
+            @OpenTabMenu.performed -= instance.OnOpenTabMenu;
+            @OpenTabMenu.canceled -= instance.OnOpenTabMenu;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -1020,6 +1102,52 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_CloseTabMenu;
+    public struct UIActions
+    {
+        private @InputActions m_Wrapper;
+        public UIActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @CloseTabMenu => m_Wrapper.m_UI_CloseTabMenu;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @CloseTabMenu.started += instance.OnCloseTabMenu;
+            @CloseTabMenu.performed += instance.OnCloseTabMenu;
+            @CloseTabMenu.canceled += instance.OnCloseTabMenu;
+        }
+
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @CloseTabMenu.started -= instance.OnCloseTabMenu;
+            @CloseTabMenu.performed -= instance.OnCloseTabMenu;
+            @CloseTabMenu.canceled -= instance.OnCloseTabMenu;
+        }
+
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -1073,5 +1201,10 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnSecondaryFire(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnCycle(InputAction.CallbackContext context);
+        void OnOpenTabMenu(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnCloseTabMenu(InputAction.CallbackContext context);
     }
 }

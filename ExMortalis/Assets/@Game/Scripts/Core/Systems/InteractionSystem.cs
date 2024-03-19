@@ -21,28 +21,30 @@ namespace Transendence.Core.Systems
 
                 if (postProcessEvent is InteractPostprocessEvent interactPostprocess)
                 {
-                    if (World.Instance.EntityContainer.GetComponent<PickUpOnInteractComponent>(interactPostprocess.TargetEntityId, ComponentType.PickUpOnInteract, out PickUpOnInteractComponent pickupComponent))
+                    if (World.Instance.EntityContainer.GetComponent<WeaponPickUpComponent>(interactPostprocess.TargetEntityId, ComponentType.WeaponPickUp, out WeaponPickUpComponent pickupComponent))
                     {
-                        if (pickupComponent.InventoryItemConfig is WeaponConfig)
+                        if (pickupComponent.WeaponConfig)
                         {
                             EquipWeaponPostProcessEvent equipWeaponPostProcessEvent = new EquipWeaponPostProcessEvent();
                             equipWeaponPostProcessEvent.ParentTransform = equipmentComponents[interactPostprocess.InteractorEntityId].WeaponSpawnPoint;
-                            equipWeaponPostProcessEvent.WeaponConfigId = pickupComponent.InventoryItemConfig.Id;
+                            equipWeaponPostProcessEvent.WeaponConfigId = pickupComponent.WeaponConfig.Id;
                             equipWeaponPostProcessEvent.WielderEntityId = interactPostprocess.InteractorEntityId;
                             equipWeaponPostProcessEvent.WeaponSlotIndex = 0;
 
                             World.Instance.AddPostProcessEvent(equipWeaponPostProcessEvent);
                         }
-                        else if (pickupComponent.InventoryItemConfig is EquipmentConfig)
-                        {
-                            //Equipment
-                        }
-                        else 
-                        {
-                            //InventoryItem
-                        }
 
                         continue;
+                    }
+                    else if (World.Instance.EntityContainer.GetComponent<AmmoItemPickupComponent>(interactPostprocess.TargetEntityId, ComponentType.AmmoItemPickup, out AmmoItemPickupComponent ammoPickup))
+                    {
+                        Debug.Log($"Ammo pickup {ammoPickup.ItemConfig.Name}");
+                        InventoryItem inventoryItem = new InventoryItem()
+                        {
+                            ConfigId = ammoPickup.ItemConfig.Id
+                        };
+                        
+                        inventoryComponents[interactPostprocess.InteractorEntityId].InventoryGrid.TryAdd(inventoryItem);
                     }
 
 

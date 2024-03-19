@@ -8,6 +8,7 @@ using static EFPController.InputManager;
 using Transendence.Core;
 using Transendence.Core.Postprocess;
 using UnityEngine.PlayerLoop;
+using Transendence.Game.UI;
 
 namespace EFPController
 {
@@ -15,6 +16,12 @@ namespace EFPController
     [DefaultExecutionOrder(-997)]
     public class InputManagerNew : InputManager
     {
+
+        public enum InputContext
+        {
+            Gameplay,
+            UI
+        }
 
         public enum Axis
         {
@@ -37,6 +44,8 @@ namespace EFPController
             public InputActionReference inputAction;
         }
 
+        public InputContext CurrentInputContext;
+
         [SerializeField]
         private List<InputAxisData> axis = new List<InputAxisData>();
         [SerializeField]
@@ -49,7 +58,7 @@ namespace EFPController
             instance = this;
 
             m_InputActions = new InputActions();
-            
+
             // m_InputActions.Gameplay._1.performed += _ => FireWeapon(0);
             // m_InputActions.Gameplay._2.performed += _ => FireWeapon(1);
             // m_InputActions.Gameplay._3.performed += _ => FireWeapon(2);
@@ -60,8 +69,44 @@ namespace EFPController
             // m_InputActions.Gameplay._8.performed += _ => FireWeapon(3);
             // m_InputActions.Gameplay._9.performed += _ => FireWeapon(3);
             // m_InputActions.Gameplay._0.performed += _ => FireWeapon(3);
-            m_InputActions.Gameplay.PrimaryFire.performed += _ => UseEquippedItem(0); 
+            m_InputActions.Gameplay.PrimaryFire.performed += _ => UseEquippedItem();
             m_InputActions.Gameplay.Cycle.performed += (InputAction.CallbackContext c) => CycleWeapons((int)c.ReadValue<float>());
+            m_InputActions.Gameplay.OpenTabMenu.performed += (InputAction.CallbackContext c) => 
+            {
+                OpenCloseTabMenu(UICommand.TabMenuShow);
+                //OpenCloseTabMenu(UICommand.TabMenuUpdate, new InventoryUIData());
+                SwitchInputContext(InputContext.UI);
+            };
+
+
+
+            //UI BINDINGS
+            m_InputActions.UI.CloseTabMenu.performed += (InputAction.CallbackContext c) => 
+            {
+                OpenCloseTabMenu(UICommand.TabMenuHide);
+                SwitchInputContext(InputContext.Gameplay);
+            };
+        }
+
+        public void SwitchInputContext(InputContext inputContext)
+        {
+            CurrentInputContext = inputContext;
+
+            if (CurrentInputContext == InputContext.Gameplay)
+            {
+                m_InputActions.Gameplay.Enable();
+                m_InputActions.UI.Disable();
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                m_InputActions.Gameplay.Disable();
+                m_InputActions.UI.Enable();
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
+            }
+
         }
 
         void Start()
@@ -75,7 +120,7 @@ namespace EFPController
             {
                 if (axisData.inputAction != null) axisData.inputAction.action.Enable();
             }
-            
+
             foreach (InputActionData actionData in actions)
             {
                 if (actionData.inputAction != null) actionData.inputAction.action.Enable();
@@ -147,13 +192,12 @@ namespace EFPController
             return false;
         }
 
-        public void UseEquippedItem(int weaponIndex)
+        public void UseEquippedItem()
         {
             UseWeaponPostprocessEvent use = new UseWeaponPostprocessEvent();
 
             TryGetComponent<Entity>(out Entity playerEntity);
 
-            use.WeaponIndex = 0;
             use.WeaponHolderEntityId = playerEntity.Id;
             use.WeaponUseType = WeaponUseType.Shoot;
 
@@ -170,6 +214,15 @@ namespace EFPController
             cycle.EntityCycleId = playerEntity.Id;
 
             World.Instance.AddPostProcessEvent(cycle);
+        }
+
+        public void OpenCloseTabMenu(UICommand uICommand, InventoryUIData uIData = new InventoryUIData())
+        {
+            GameManager.Instance.UIManager.SendCommand(uICommand);
+
+            if (uICommand == UICommand.TabMenuUpdate)
+                GameManager.Instance.UIManager.SendUpdateCommand(uICommand, uIData);
+
         }
 
     }

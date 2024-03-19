@@ -64,6 +64,7 @@ namespace Transendence.Core.Systems
                             }
 
                             RaycastHit hit = new RaycastHit();
+                            float headShotMultiplier = 1;
 
                             if (Physics.Raycast(weaponShootTransform.position, bloom, out hit, weaponConfig.MaxRange, equipmentComponents[weaponPostprocess.WeaponHolderEntityId].ShootLayer))
                             {
@@ -78,6 +79,11 @@ namespace Transendence.Core.Systems
                                         effect.transform.position = hit.point;
                                         Quaternion rotation = Quaternion.LookRotation(hit.normal);
                                         effect.transform.rotation = rotation;
+                                    }
+
+                                    if (hit.collider.CompareTag("Head"))
+                                    {
+                                        headShotMultiplier = 2;
                                     }
                                 }
 
@@ -104,7 +110,7 @@ namespace Transendence.Core.Systems
                                         effect.transform.rotation = rotation;
                                     }
 
-                                    totalDamage += weaponConfig.Damage;
+                                    totalDamage += weaponConfig.Damage * headShotMultiplier;
                                 }
                             }
                         }

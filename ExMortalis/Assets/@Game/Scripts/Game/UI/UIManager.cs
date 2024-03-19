@@ -15,6 +15,7 @@ namespace Transendence.Game.UI
         {
             RegisterEntityHealthBar();
             RegisterAmmoCounterUI();
+            RegisterTabMenuUI();
         }
 
         public void RegisterEntityHealthBar()
@@ -41,6 +42,19 @@ namespace Transendence.Game.UI
             RegisterCommand(UICommand.AmmoCounterHide, uiAmmoCounter.Hide);
 
             uiAmmoCounter.Initialize(false);
+        }
+
+        public void RegisterTabMenuUI()
+        {
+            GameObject tabMenuPrefab = GameObject.Instantiate(Resources.Load(UITabMenu.UI_PATH) as GameObject);
+            UITabMenu uITabMenu = tabMenuPrefab.GetComponent<UITabMenu>();
+
+            RegisterUI(uITabMenu);
+            RegisterCommand(UICommand.TabMenuUpdate, uITabMenu.UpdateUI);
+            RegisterCommand(UICommand.TabMenuShow, uITabMenu.Show);
+            RegisterCommand(UICommand.TabMenuHide, uITabMenu.Hide);
+
+            uITabMenu.Initialize(false);
         }
 
         public void RegisterUI(IUI ui)

@@ -25,7 +25,7 @@ namespace Transendence.Core.Systems
                 if (postProcessEvent is EquipWeaponPostProcessEvent weaponPostprocess)
                 {
                     int wielderEntityId = weaponPostprocess.WielderEntityId;
-                    WeaponConfig weaponConfig = World.Instance.WorldConfig.WeaponConfigs[weaponPostprocess.WeaponConfigId];
+                    WeaponConfig weaponConfig = World.Instance.WorldConfig.InventoryItemConfigs[weaponPostprocess.WeaponConfigId] as WeaponConfig;
 
                     var weaponInstance = GameObject.Instantiate(weaponConfig.WeaponEntityPrefab) as GameObject;
                     int weaponEntityId = World.Instance.EntityContainer.CreateEntity(weaponInstance);

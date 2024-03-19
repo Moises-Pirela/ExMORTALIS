@@ -4,21 +4,20 @@ namespace Transendence.Core
 {
     public enum DamageType
     {
-        Physical,
-        Chemical,
+        KINETIC, NEUROBIOTIC, ENERGY
     }
 
     public enum DamageMethod
     {
         AOE,
-        Projectile,
-        Pierce
+        PROJECTILE,
+        PIERCE
     }
 
     public enum DamageApplication
     {
-        Direct,
-        Over_Time,
+        DIRECT,
+        OVER_TIME,
     }
 
     public class DamageComponent : MonoBehaviour, IComponent

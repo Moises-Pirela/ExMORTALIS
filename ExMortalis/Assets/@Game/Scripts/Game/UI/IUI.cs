@@ -20,5 +20,8 @@ namespace Transendence.Game.UI
         AmmoCounterShow,
         AmmoCounterHide,
         AmmoCounterUpdate,
+        TabMenuUpdate,
+        TabMenuShow,
+        TabMenuHide,
     }
 }

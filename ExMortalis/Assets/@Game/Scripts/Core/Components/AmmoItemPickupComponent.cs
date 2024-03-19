@@ -5,8 +5,10 @@ namespace Transendence.Core
 {
     public class AmmoItemPickupComponent : MonoBehaviour, IComponent
     {
+        public InventoryItemConfig ItemConfig;
         public int AmmoCount;
-        public AmmoType AmmoType;
+        public DamageType AmmoDamageType;
+        public AmmoWeaponType WeaponAmmoType;
         
         public ComponentType GetComponentType()
         {
