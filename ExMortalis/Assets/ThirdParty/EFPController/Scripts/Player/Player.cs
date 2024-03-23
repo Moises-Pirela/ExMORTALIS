@@ -9,6 +9,8 @@ using EFPController.Extras;
 using NL.Core.Postprocess;
 using NL.Core;
 using NL.ExMORTALIS.UI;
+using NL.Core.Systems;
+
 
 
 
@@ -25,7 +27,7 @@ namespace EFPController
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // static
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
         public static bool canControl { get; private set; }
         public static bool canCameraControl { get; private set; }
         public static bool canInteractable { get; private set; }
@@ -79,8 +81,8 @@ namespace EFPController
         public float leaning => controller.leanAmt / controller.leanDistance;
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    #if UNITY_EDITOR
+
+#if UNITY_EDITOR
         protected virtual void Reset()
         {
             FindColliders();
@@ -91,7 +93,7 @@ namespace EFPController
             colliders.Clear();
             colliders.AddRange(GetComponentsInChildren<Collider>());
         }
-    #endif
+#endif
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -118,7 +120,8 @@ namespace EFPController
             controller.allowCrouch = true;
             audioSources.SetParent(cameraRoot.transform);
             inited = true;
-            this.WaitAndCall(0.5f, () => {
+            this.WaitAndCall(0.5f, () =>
+            {
                 SetControl(true, true);
                 SetInteractable(true, true);
                 Teleport(transform.position, transform.rotation);
@@ -138,10 +141,10 @@ namespace EFPController
                 ReturnToLastGroundPosition();
             }
 
-            if (canInteractable)
-            {
-                Interactable();
-            }
+            //if (canInteractable)
+            //{
+            //    Interactable();
+            //}
 
             CheckForEntityHealth();
         }
@@ -174,7 +177,7 @@ namespace EFPController
                         MaxHealth = healthComponent.MaxHealth.CalculateValue(),
                         Name = entity.Render == null ? "NO_RENDER_ERROR" : entity.Render.DisplayName
                     };
-                    
+
                     GameManager.Instance.UIManager.SendUpdateCommand(UICommand.EntityHealthBarUpdate, uiData);
 
                     HideTime = Time.time + 1.25f;
@@ -189,8 +192,23 @@ namespace EFPController
             }
         }
 
-        private void Interactable()
+        public void Interact()
         {
+            if (World.Instance.EntityContainer.GetComponent<ThrowerComponent>(World.PLAYER_ENTITY_ID, ComponentType.Thrower, out ThrowerComponent throwerComponent))
+            {
+                if (throwerComponent.PickedUpEntityId != -1)
+                {
+                    PlayerInputPostProcess playerInputPostProcess = new PlayerInputPostProcess()
+                    {
+                        InputType = PlayerInputPostProcess.PlayerInputType.Interact,
+                        InteractionEntityId = throwerComponent.PickedUpEntityId
+                    };
+
+                    World.Instance.AddPostProcessEvent(playerInputPostProcess);
+                    return;
+                }
+            }
+
             GameObject interactable = null;
 
             RaycastHit hitUsable;
@@ -202,12 +220,14 @@ namespace EFPController
             if (hitUsable.collider != null && hitUsable.collider.gameObject.tag == Game.Tags.Interactable)
             {
                 interactable = hitUsable.collider.gameObject;
-            } else {
+            }
+            else
+            {
                 RaycastHit hitUsable2;
                 Physics.SphereCast(ray.origin, interactCastRadius, ray.direction, out hitUsable2, interactDistance, interactLayerMask, QueryTriggerInteraction.Ignore);
                 if (hitUsable2.collider != null)
                 {
-                    Vector3 center = hitUsable.collider != null ? GameUtils.GetClosestPointOnLine(hitUsable2.point, ray.origin, hitUsable.point) : 
+                    Vector3 center = hitUsable.collider != null ? GameUtils.GetClosestPointOnLine(hitUsable2.point, ray.origin, hitUsable.point) :
                         GameUtils.GetClosestPointOnRay(hitUsable2.point, ray.origin, ray.direction);
                     Collider[] usables = Physics.OverlapSphere(center, interactCastRadius, interactLayerMask, QueryTriggerInteraction.Ignore);
                     interactable = usables.Where(x => x.gameObject.tag == Game.Tags.Interactable).
@@ -221,22 +241,17 @@ namespace EFPController
 
                 if (interactionEntity)
                 {
-                    if (inputManager.GetActionKeyUp(InputManager.Action.Interact))
+                    PlayerInputPostProcess playerInputPostProcess = new PlayerInputPostProcess()
                     {
-                        InteractPostprocessEvent interactPostprocessEvent = new InteractPostprocessEvent();
+                        InputType = PlayerInputPostProcess.PlayerInputType.Interact,
+                        InteractionEntityId = interactionEntity.Id
+                    };
 
-                        interactPostprocessEvent.InteractorEntityId = World.PLAYER_ENTITY_ID;
-                        interactPostprocessEvent.TargetEntityId = interactionEntity.Id;
-                        interactPostprocessEvent.Type = InteractPostprocessEvent.InteractionType.Use;
-
-                        World.Instance.AddPostProcessEvent(interactPostprocessEvent);
-
-                        //interactReceiver.InteractRequest();
-                    } else {
-                        //interactReceiver.HoverRequest();
-                    }
+                    World.Instance.AddPostProcessEvent(playerInputPostProcess);
                 }
             }
+
+
         }
 
         public void ReturnToLastGroundPosition()
@@ -311,7 +326,8 @@ namespace EFPController
 
             if (rotation != null) Rotate((Quaternion)rotation);
 
-            this.WaitAndCall(1f, () => {
+            this.WaitAndCall(1f, () =>
+            {
                 cameraControl.smooth = true;
                 smoothLook.smooth = true;
             });

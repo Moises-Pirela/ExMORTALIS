@@ -2,10 +2,9 @@
 
 namespace NL.Core
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class ThrowableComponent : MonoBehaviour, IComponent
     {
-        public float ThrowForce;
-        [HideInInspector] public Vector3 ThrowDirection;
         [HideInInspector] public Rigidbody Rigidbody;
 
         private void Awake()
@@ -13,9 +12,9 @@ namespace NL.Core
             Rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void SetThrow()
+        public void Throw(float throwForce, Vector3 throwDirection)
         {
-            Rigidbody.velocity = ThrowDirection * ThrowForce;
+            Rigidbody.velocity = throwDirection * throwForce;
         }
 
         public ComponentType GetComponentType()

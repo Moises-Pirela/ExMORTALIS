@@ -43,7 +43,13 @@ namespace NL.Core.Systems
                             break;
                         case PlayerInputPostProcess.PlayerInputType.Interact:
 
+                            InteractPostprocessEvent interactPostprocessEvent = new InteractPostprocessEvent();
 
+                            interactPostprocessEvent.InteractorEntityId = World.PLAYER_ENTITY_ID;
+                            interactPostprocessEvent.TargetEntityId = inputPostprocess.InteractionEntityId;
+                            interactPostprocessEvent.Type = InteractPostprocessEvent.InteractionType.Use;
+
+                            World.Instance.AddPostProcessEvent(interactPostprocessEvent);
 
                             break;
                         case PlayerInputPostProcess.PlayerInputType.Fire:
@@ -62,5 +68,7 @@ namespace NL.Core.Systems
         public enum PlayerInputType { Reload, Interact, Fire }
 
         public PlayerInputType InputType;
+
+        public int InteractionEntityId;
     }
 }

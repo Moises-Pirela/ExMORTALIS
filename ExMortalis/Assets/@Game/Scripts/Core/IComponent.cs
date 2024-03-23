@@ -10,6 +10,7 @@
         Projectile,
         BuffDebuff,
         Throwable,
+        Thrower,
         PlayerTag,
         DestroyOnHit,
         SpawnOnHit,

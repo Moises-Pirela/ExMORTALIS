@@ -56,14 +56,11 @@ namespace NL.Core.Systems
 
                     if (World.Instance.EntityContainer.HasComponent<ThrowableComponent>(abilityEntityId, ComponentType.Throwable))
                     {
-                        abilityInstance.transform.forward = forwardDirection;
-                        throwableComponents[abilityEntityId].ThrowDirection = forwardDirection;
-                        throwableComponents[abilityEntityId].SetThrow();
+                        throwableComponents[abilityEntityId].Throw(10, forwardDirection);
                     }
 
                     childComponents[abilityEntityId].ParentEntityId = entity.Id;
 
-                    Debug.Log($"Entity {i} casted ability {abilityConfig.name}");
                     abilityComponents[i].AbilityCastedIndex = -1;
                 }
             }

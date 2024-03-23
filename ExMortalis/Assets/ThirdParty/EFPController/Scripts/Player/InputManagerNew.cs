@@ -71,6 +71,7 @@ namespace EFPController
             // m_InputActions.Gameplay._9.performed += _ => FireWeapon(3);
             // m_InputActions.Gameplay._0.performed += _ => FireWeapon(3);
             m_InputActions.Gameplay.PrimaryFire.performed += _ => UseEquippedItem();
+            m_InputActions.Gameplay.Interact.performed += _ => Player.instance.Interact();
             m_InputActions.Gameplay.Reload.performed += _ => ReloadWeapon();
             m_InputActions.Gameplay.Cycle.performed += (InputAction.CallbackContext c) => CycleWeapons((int)c.ReadValue<float>());
             m_InputActions.Gameplay.OpenTabMenu.performed += (InputAction.CallbackContext c) => 

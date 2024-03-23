@@ -48,12 +48,11 @@ namespace NL.Core.Systems
                     }
                     else if (World.Instance.EntityContainer.GetComponent<AmmoItemPickupComponent>(interactPostprocess.TargetEntityId, ComponentType.AmmoItemPickup, out AmmoItemPickupComponent ammoPickup))
                     {
-                        Debug.Log($"Ammo pickup {ammoPickup.ItemConfig.Name}");
                         InventoryItem inventoryItem = new InventoryItem()
                         {
                             ConfigId = ammoPickup.ItemConfig.Id
                         };
-                        
+
                         inventoryComponents[interactPostprocess.InteractorEntityId].Inventory.TryAdd(inventoryItem);
 
                         if (World.Instance.EntityContainer.HasComponent<DestroyOnPickupComponent>(interactPostprocess.TargetEntityId, ComponentType.DestroyOnPickup))
@@ -67,6 +66,29 @@ namespace NL.Core.Systems
                         }
 
                         continue;
+                    }
+                    else if (World.Instance.EntityContainer.GetComponent<ThrowableComponent>(interactPostprocess.TargetEntityId, ComponentType.Throwable, out ThrowableComponent throwableComponent))
+                    {
+                        if (World.Instance.EntityContainer.GetComponent<ThrowerComponent>(interactPostprocess.InteractorEntityId, ComponentType.Thrower, out ThrowerComponent throwerComponent))
+                        {
+                            if (throwerComponent.PickedUpEntityId == -1)
+                            {
+                                throwerComponent.PickedUpEntityId = interactPostprocess.TargetEntityId;
+
+                                throwableComponent.transform.position = throwerComponent.PickupTransform.position;
+                                throwableComponent.transform.parent = throwerComponent.PickupTransform;
+                                throwableComponent.Rigidbody.isKinematic = true;
+                            }
+                            else
+                            {
+                                throwableComponent.transform.parent = null;
+                                throwableComponent.Rigidbody.isKinematic = false;
+                                throwerComponent.PickedUpEntityId = -1;
+
+                                //throwerComponent.ThrowDirection = throwerComponent.PickupTransform.forward;
+                                //throwerComponent.ThrowDistance = 10; //TODO: Should be replaced with current character strength skill;
+                            }
+                        }
                     }
 
 
