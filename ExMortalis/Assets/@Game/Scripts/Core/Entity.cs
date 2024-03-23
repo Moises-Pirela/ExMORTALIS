@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Security.Principal;
-using Transendence.Core;
-using Transendence.Core.Configs;
-using Transendence.Core.Postprocess;
+using NL.Core;
+using NL.Core.Configs;
+using NL.Core.Postprocess;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;

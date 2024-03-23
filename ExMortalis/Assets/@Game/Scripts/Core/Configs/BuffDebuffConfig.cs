@@ -1,7 +1,7 @@
-﻿using Transendence.Core;
+﻿using NL.Core;
 using UnityEngine;
 
-namespace Transendence.Core.Configs
+namespace NL.Core.Configs
 {
     [CreateAssetMenu(menuName = "Tools/Configs/BuffDebuff", fileName = "BuffDebuff")]
     public class BuffDebuffConfig : BaseScriptableConfig

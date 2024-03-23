@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     [RequireComponent(typeof(AudioSource))]
     public class AudioComponent : MonoBehaviour, IComponent

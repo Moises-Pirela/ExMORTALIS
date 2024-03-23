@@ -2,7 +2,7 @@
 using Unity.Burst;
 using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public abstract class ComponentArray
     {

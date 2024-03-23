@@ -2,7 +2,7 @@
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public enum BuffDebuffType
     {

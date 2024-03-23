@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Transendence.Core.Configs
+namespace NL.Core.Configs
 {
     public abstract class BaseScriptableConfig : ScriptableObject
     {

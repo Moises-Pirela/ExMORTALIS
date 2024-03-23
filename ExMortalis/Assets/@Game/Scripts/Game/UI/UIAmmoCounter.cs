@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Transendence.Core;
+using NL.Core;
 
-namespace Transendence.Game.UI
+namespace NL.Game.UI
 {
 
     public struct AmmoCounterUIData : IUIData

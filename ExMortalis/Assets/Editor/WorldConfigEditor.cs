@@ -1,8 +1,8 @@
-﻿using Transendence.Core.Configs;
+﻿using NL.Core.Configs;
 using UnityEditor;
 using UnityEngine;
 
-namespace Transendence.EditorTools
+namespace NL.EditorTools
 {
     [CustomEditor(typeof(WorldConfig))]
     public class WorldConfigEditor : Editor

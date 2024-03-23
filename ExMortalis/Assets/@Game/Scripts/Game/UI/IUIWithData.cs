@@ -1,4 +1,4 @@
-namespace Transendence.Game.UI
+namespace NL.Game.UI
 {
     public interface IUIData { }
 

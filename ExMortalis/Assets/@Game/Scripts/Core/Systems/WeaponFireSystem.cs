@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using PampelGames.GoreSimulator;
-using Transendence.Core.Configs;
-using Transendence.Core.Postprocess;
-using Transendence.Utilities;
+using NL.Core.Configs;
+using NL.Core.Postprocess;
+using NL.Utilities;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-namespace Transendence.Core.Systems
+namespace NL.Core.Systems
 {
 
     [System(SystemAttributeType.PostProcess, -1)]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Transendence.Game.UI
+namespace NL.Game.UI
 {
     public class UIManager
     {

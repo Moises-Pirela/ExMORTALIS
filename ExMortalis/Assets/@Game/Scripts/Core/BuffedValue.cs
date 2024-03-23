@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     [Serializable]
     public struct BuffedValue<T>

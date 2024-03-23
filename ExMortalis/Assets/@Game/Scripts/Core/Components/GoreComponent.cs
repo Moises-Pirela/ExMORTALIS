@@ -1,7 +1,7 @@
 using UnityEngine;
 using PampelGames.GoreSimulator;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public class GoreComponent : MonoBehaviour, IComponent
     {

@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Transendence.Core.Configs;
+using NL.Core.Configs;
 using UnityEngine;
 
-namespace Transendence.Core.Configs
+namespace NL.Core.Configs
 {
     public enum SurfaceTags
     {

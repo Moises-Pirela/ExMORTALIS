@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public class InteractableComponent : MonoBehaviour, IComponent
     {

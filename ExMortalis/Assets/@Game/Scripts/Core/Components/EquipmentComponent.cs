@@ -1,7 +1,7 @@
-using Transendence.Core.Configs;
+using NL.Core.Configs;
 using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public class EquipmentComponent : MonoBehaviour, IComponent
     {

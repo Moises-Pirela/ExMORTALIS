@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public class ProjectileComponent : MonoBehaviour, IComponent
     {

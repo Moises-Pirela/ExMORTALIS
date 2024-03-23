@@ -2,9 +2,9 @@
 using UnityEngine;
 using PampelGames.GoreSimulator;
 using UnityEditor;
-using Transendence.Core;
+using NL.Core;
 
-namespace Transendence.EditorTools
+namespace NL.EditorTools
 {
     [CustomEditor(typeof(GoreComponent))]
     public class GoreComponentEditor : Editor

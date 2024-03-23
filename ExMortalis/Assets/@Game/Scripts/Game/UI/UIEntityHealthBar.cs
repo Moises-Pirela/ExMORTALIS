@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Transendence.Game.UI
+namespace NL.Game.UI
 {
 
     public struct EntityHealthBarUIData : IUIData

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Transendence.Game.UI
+namespace NL.Game.UI
 {
     public abstract class BaseUI : MonoBehaviour, IUI
     {

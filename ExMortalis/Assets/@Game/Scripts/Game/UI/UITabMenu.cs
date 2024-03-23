@@ -1,9 +1,9 @@
-using Transendence.Core;
+using NL.Core;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
-namespace Transendence.Game.UI
+namespace NL.Game.UI
 {
     public struct InventoryUIData : IUIData
     {

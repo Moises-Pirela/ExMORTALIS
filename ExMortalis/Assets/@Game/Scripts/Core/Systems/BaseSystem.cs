@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Transendence.Core.Postprocess;
+using NL.Core.Postprocess;
 
-namespace Transendence.Core.Systems
+namespace NL.Core.Systems
 {
     public abstract class BaseSystem
     {

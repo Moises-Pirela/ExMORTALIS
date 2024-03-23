@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Transendence.Core;
-using Transendence.Core.Configs;
-using Transendence.Core.Postprocess;
-using Transendence.Core.Systems;
-using Transendence.Utilities;
+using NL.Core;
+using NL.Core.Configs;
+using NL.Core.Postprocess;
+using NL.Core.Systems;
+using NL.Utilities;
 using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public class World
     {
@@ -76,7 +76,7 @@ namespace Transendence.Core
             {
                 var system = (BaseSystem)Activator.CreateInstance(type.Type);
 
-                Debug.Log($"Loading system: {type.Type.Name}");
+                Debug.Log($"Loading {type.Attribute.SystemType} system: {type.Type.Name}");
 
                 switch (type.Attribute.SystemType)
                 {

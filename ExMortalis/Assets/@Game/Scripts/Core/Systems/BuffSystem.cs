@@ -1,9 +1,9 @@
-using Transendence.Core.Configs;
-using Transendence.Utilities;
+using NL.Core.Configs;
+using NL.Utilities;
 using Unity.Burst;
 using UnityEngine;
 
-namespace Transendence.Core.Systems
+namespace NL.Core.Systems
 {
     [System(SystemAttributeType.Normal)]
     public class BuffSystem : BaseSystem

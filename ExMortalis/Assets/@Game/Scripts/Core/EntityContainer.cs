@@ -6,7 +6,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 using System.Reflection;
 using System.Linq;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public class EntityContainer
     {

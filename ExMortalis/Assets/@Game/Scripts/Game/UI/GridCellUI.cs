@@ -1,10 +1,10 @@
 using TMPro;
-using Transendence.Core;
+using NL.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Transendence.Game.UI
+namespace NL.Game.UI
 {
     public class GridCellUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDragHandler
     {

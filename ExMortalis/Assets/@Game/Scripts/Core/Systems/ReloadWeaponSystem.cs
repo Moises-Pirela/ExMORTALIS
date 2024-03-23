@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Transendence.Core.Configs;
-using Transendence.Core.Postprocess;
-using Transendence.Utilities;
+using NL.Core.Configs;
+using NL.Core.Postprocess;
+using NL.Utilities;
+using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.UIElements;
 
-namespace Transendence.Core.Systems
+namespace NL.Core.Systems
 {
     [System(SystemAttributeType.PostProcess, -1)]
     public class ReloadWeaponSystem : BaseSystem
@@ -26,12 +27,9 @@ namespace Transendence.Core.Systems
                 {
                     EquipmentComponent equipment = equipmentComponents[weaponPostprocess.WeaponHolderEntityId];
 
-                    if (equipment.CurrentEquippedWeaponIndex == -1) continue;
-
                     WeaponComponent weapon = weaponComponents[equipment.EquippedItemEntityIds[equipment.CurrentEquippedWeaponIndex]];
-                    WeaponConfig weaponConfig = weapon.WeaponConfig;
 
-                    if (weapon.AmmoCount.CurrentCount >= weaponConfig.MagazineSize) continue;
+                    WeaponConfig weaponConfig = weapon.WeaponConfig;
 
                     //int ammoNeeded = Math.Min(weaponConfig.ReloadSize, weaponConfig.MagazineSize - weapon.AmmoCount.CurrentCount);
 
@@ -39,11 +37,8 @@ namespace Transendence.Core.Systems
 
                     InventoryComponent inventoryComponent = inventoryComponents[weaponPostprocess.WeaponHolderEntityId];
 
-                    int stacks = inventoryComponent.Inventory.GetStacksOfItem(ammoConfig.Id);
-
-                    if (stacks == 0) continue;
-
                     weapon.AmmoCount.CurrentCount += inventoryComponent.Inventory.TryTakeFromStack(ammoConfig.Id, weaponConfig.ReloadSize);
+
                 }
             }
         }

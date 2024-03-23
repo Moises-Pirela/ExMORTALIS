@@ -1,13 +1,15 @@
-using Transendence.Core.Configs;
-using Transendence.Core.Postprocess;
+using NL.Core.Configs;
+using NL.Core.Postprocess;
 using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public class WeaponComponent : MonoBehaviour, IComponent
     {
+        public enum WeaponState { Idle, Firing, Reloading }
+        public WeaponState State;
         public int WielderEntityId;
-        public float NextReloadTime;
+        public float NextReloadTimeSec;
         public WeaponConfig WeaponConfig;
         public AmmoCount AmmoCount;
 

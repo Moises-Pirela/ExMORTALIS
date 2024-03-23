@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Transendence.Game.UI
+namespace NL.Game.UI
 {
     public class HotbarSlot : MonoBehaviour
     {

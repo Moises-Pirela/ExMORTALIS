@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Transendence.Core.Postprocess;
-using Transendence.Utilities;
+using NL.Core.Postprocess;
+using NL.Utilities;
 
-namespace Transendence.Core.Systems
+namespace NL.Core.Systems
 {
     [System(SystemAttributeType.PostProcess)]
     public class GoreSystem : BaseSystem

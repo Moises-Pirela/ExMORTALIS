@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static EFPController.InputManager;
-using Transendence.Core;
-using Transendence.Core.Postprocess;
+using NL.Core;
+using NL.Core.Postprocess;
 using UnityEngine.PlayerLoop;
-using Transendence.Game.UI;
+using NL.Game.UI;
+using NL.Core.Systems;
 
 namespace EFPController
 {
@@ -228,19 +229,11 @@ namespace EFPController
 
         public void ReloadWeapon()
         {
-            World.Instance.EntityContainer.GetComponent<EquipmentComponent>(World.PLAYER_ENTITY_ID, ComponentType.Equipment, out EquipmentComponent equipment);
+            PlayerInputPostProcess input = new PlayerInputPostProcess();
 
-            if (equipment.CurrentEquippedWeaponIndex == -1) return;
+            input.InputType = PlayerInputPostProcess.PlayerInputType.Reload;
 
-            World.Instance.EntityContainer.GetComponent<WeaponComponent>(equipment.EquippedItemEntityIds[equipment.CurrentEquippedWeaponIndex], ComponentType.Weapon, out WeaponComponent weapon);
-
-            World.Instance.EntityContainer.GetComponent<InventoryComponent>(World.PLAYER_ENTITY_ID, ComponentType.Inventory, out InventoryComponent inventory);
-
-            if (inventory.Inventory.GetStacksOfItem(weapon.WeaponConfig.AmmoConfig.Id) == 0) return;
-
-            if (weapon.AmmoCount.CurrentCount >= weapon.WeaponConfig.MagazineSize) return;
-
-            weapon.SetAnimation("Reload", "Reload");
+            World.Instance.AddPostProcessEvent(input);
         }
 
     }

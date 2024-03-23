@@ -230,20 +230,20 @@ MonoBehaviour:
   m_Active: 0
   settings:
     intensity: 0.3
-    kuwahara: 1
+    kuwahara: 3
     passes: 1
-    radius: 10
-    blur: 6
-    sharpness: 2
-    hardness: 85.7
+    radius: 5
+    blur: 3
+    sharpness: 4.41
+    hardness: 33.1
     alpha: 1
     zeroCrossing: 0.58
-    detail: 1
+    detail: 0
     detailStrength: 0.502
     embossStrength: 5
     embossAngle: 0
-    waterColor: 0.121
-    processDepth: 1
+    waterColor: 1
+    processDepth: 0
     depthCurve:
       serializedVersion: 2
       m_Curve:
@@ -291,4 +291,4 @@ MonoBehaviour:
     whenToInsert: 550
     ignoreDeltaTimeScale: 1
     enableProfiling: 0
-    forceCurveTextureUpdate: 0
+    forceCurveTextureUpdate: 1

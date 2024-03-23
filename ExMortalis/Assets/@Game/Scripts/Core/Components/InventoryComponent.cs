@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using JetBrains.Annotations;
-using Transendence.Core.Configs;
+using NL.Core.Configs;
 using UnityEngine;
 using UnityEngine.Scripting;
 using UnityEngine.UIElements;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public struct InventoryItem
     {
@@ -167,7 +167,6 @@ namespace Transendence.Core
 
                     if (isAvailable)
                     {
-                        // Add the item to the inventory as a new stack
                         for (int i = 0; i < size.x; i++)
                         {
                             for (int j = 0; j < size.y; j++)
@@ -178,8 +177,7 @@ namespace Transendence.Core
 
                         item.Stacks = 1;
 
-                        // Update the hash map with the new stack location
-                        UpdateItemLocations(item, new Vector2Int(x, y));
+                        AddItemLocation(item, new Vector2Int(x, y));
 
                         Inventory[x, y] = item;
 
@@ -230,7 +228,7 @@ namespace Transendence.Core
             return false;
         }
 
-        private void UpdateItemLocations(InventoryItem item, Vector2Int position)
+        private void AddItemLocation(InventoryItem item, Vector2Int position)
         {
             item.CurrentPosition = position;
 
@@ -250,11 +248,10 @@ namespace Transendence.Core
 
             Inventory[newIndex.x, newIndex.y] = item;
 
-            UpdateItemLocations(item, newIndex);
+            AddItemLocation(item, newIndex);
             RemoveItemLocation(item, oldIndex);
 
             Debug.Log($"Moved item {item.ConfigId} to index {newIndex}");
-
         }
 
         private void RemoveItemLocation(InventoryItem item, Vector2Int position)

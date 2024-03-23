@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using Transendence.Game.UI;
+using NL.Game.UI;
 using UnityEngine;
 
-namespace Transendence.Game
+namespace NL.Game
 {
     public class UIHotbar : MonoBehaviour
     {

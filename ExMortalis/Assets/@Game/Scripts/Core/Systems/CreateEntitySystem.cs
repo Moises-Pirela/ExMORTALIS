@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using Transendence.Core.Postprocess;
-using Transendence.Utilities;
+using NL.Core.Postprocess;
+using NL.Utilities;
 using Unity.Burst;
 using UnityEngine;
 
-namespace Transendence.Core.Systems
+namespace NL.Core.Systems
 {
     [System(SystemAttributeType.PostProcess, -1)]
     public class CreateEntitySystem : BaseSystem

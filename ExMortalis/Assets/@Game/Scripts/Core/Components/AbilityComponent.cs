@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Transendence.Core.Configs;
+using NL.Core.Configs;
 using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public class AbilityComponent : MonoBehaviour, IComponent
     {

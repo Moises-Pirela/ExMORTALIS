@@ -1,8 +1,8 @@
-﻿using Transendence.Core;
-using Transendence.Core.Configs;
+﻿using NL.Core;
+using NL.Core.Configs;
 using UnityEditor;
 
-namespace Transendence.EditorTools
+namespace NL.EditorTools
 {
     [CustomEditor(typeof(BuffDebuffConfig))]
     public class BuffDebuffConfigEditor : Editor

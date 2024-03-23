@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public class HealthComponent : MonoBehaviour, IComponent
     {

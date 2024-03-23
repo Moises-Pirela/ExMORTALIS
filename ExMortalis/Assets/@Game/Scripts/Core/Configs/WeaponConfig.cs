@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Transendence.Core.Configs
+namespace NL.Core.Configs
 {
     public enum WeaponType { RANGED, MELEE, THROWABLE }
     public enum AmmoWeaponType { SHOTGUN, PISTOL, MAGNUM }
@@ -17,6 +17,7 @@ namespace Transendence.Core.Configs
         public InventoryItemConfig AmmoConfig;
         public float Damage;
         public float FireRate;
+        public float ReloadTimeSec;
         public int BulletsPerShot;
         public float MaxRange;
         public int MagazineSize;

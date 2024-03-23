@@ -1,8 +1,8 @@
-using Transendence.Game.Input;
+using NL.Game.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Transendence.Game
+namespace NL.Game
 {
     public class FirstPersonController : MonoBehaviour
     {

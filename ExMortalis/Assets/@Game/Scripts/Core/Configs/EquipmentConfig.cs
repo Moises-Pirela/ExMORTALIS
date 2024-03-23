@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Transendence.Core.Configs
+namespace NL.Core.Configs
 {
     public enum EquipmentType { Consumable, Weapon }
     [CreateAssetMenu(menuName = "Tools/Configs/Equipment", fileName = "Equipment")]

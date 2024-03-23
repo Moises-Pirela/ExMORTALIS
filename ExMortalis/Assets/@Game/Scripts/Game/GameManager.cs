@@ -1,9 +1,9 @@
-using Transendence.Core;
-using Transendence.Core.Configs;
+using NL.Core;
+using NL.Core.Configs;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-namespace Transendence.Game.UI
+namespace NL.Game.UI
 {
     public class GameManager : MonoBehaviour
     {

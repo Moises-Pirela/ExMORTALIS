@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Transendence.Core.Postprocess;
-using Transendence.Utilities;
+using NL.Core.Postprocess;
+using NL.Utilities;
 using UnityEngine;
 
-namespace Transendence.Core.Systems
+namespace NL.Core.Systems
 {
     [System(SystemAttributeType.PostProcess)]
     public class DamageSystem : BaseSystem

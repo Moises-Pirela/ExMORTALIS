@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Transendence.Core.Postprocess
+namespace NL.Core.Postprocess
 {
     public enum WeaponUseType
     {

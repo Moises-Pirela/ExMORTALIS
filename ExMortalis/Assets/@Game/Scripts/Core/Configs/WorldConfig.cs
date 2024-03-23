@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Transendence.Core.Configs
+namespace NL.Core.Configs
 {
     [CreateAssetMenu(menuName = "Tools/Configs/World", fileName = "WorldConfig")]
     public class WorldConfig : BaseScriptableConfig

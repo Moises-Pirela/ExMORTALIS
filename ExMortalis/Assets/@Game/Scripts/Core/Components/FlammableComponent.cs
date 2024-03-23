@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public class FlammableComponent : MonoBehaviour, IComponent
     {

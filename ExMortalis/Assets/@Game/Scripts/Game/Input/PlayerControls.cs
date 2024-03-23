@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Transendence.Game.Input
+namespace NL.Game.Input
 {
     public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {

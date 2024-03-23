@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Transendence.Utilities
+namespace NL.Utilities
 {
     public enum SystemAttributeType { Normal, PostProcess, Fixed }
 

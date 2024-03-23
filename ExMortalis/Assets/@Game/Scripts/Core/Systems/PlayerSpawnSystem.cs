@@ -1,6 +1,6 @@
-using Transendence.Utilities;
+using NL.Utilities;
 
-namespace Transendence.Core.Systems
+namespace NL.Core.Systems
 {
     [System(SystemAttributeType.Normal)]
     public class PlayerSpawnSystem : BaseSystem

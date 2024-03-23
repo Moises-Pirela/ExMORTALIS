@@ -1,7 +1,7 @@
 using UnityEngine;
 using Unity.Mathematics;
 
-namespace Transendence.Core.Configs
+namespace NL.Core.Configs
 {
     public enum ItemType
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Transendence.Core
+namespace NL.Core
 {
     public struct CollisionInfo
     {
