@@ -44,7 +44,7 @@ namespace Transendence.Core.Systems
                             ConfigId = ammoPickup.ItemConfig.Id
                         };
                         
-                        inventoryComponents[interactPostprocess.InteractorEntityId].InventoryGrid.TryAdd(inventoryItem);
+                        inventoryComponents[interactPostprocess.InteractorEntityId].Inventory.TryAdd(inventoryItem);
                     }
 
 

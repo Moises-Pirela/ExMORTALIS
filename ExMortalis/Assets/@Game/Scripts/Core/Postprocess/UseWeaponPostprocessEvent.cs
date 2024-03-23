@@ -8,6 +8,12 @@ namespace Transendence.Core.Postprocess
         Reload,
         Inspect
     }
+
+    public struct ReloadWeaponPostProcessEvent : IPostProcessEvent
+    {
+        public int WeaponHolderEntityId;
+    }
+
     public struct UseWeaponPostprocessEvent : IPostProcessEvent
     {
         public int WeaponIndex;

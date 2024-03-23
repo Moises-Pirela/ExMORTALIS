@@ -12,22 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affb661a847cc1548bcfcea517b214c8, type: 3}
   m_Name: M1897
   m_EditorClassIdentifier: 
-  Id: 1
+  Id: 2
   Name: M1897
-  ItemSprite: {fileID: 0}
+  ItemSprite: {fileID: 21300000, guid: d582072dc2034b849bfa456cd30a6fd0, type: 3}
   ItemType: 1
   GridSize: {x: 0, y: 0}
+  MaxStacks: 0
   EquipmentType: 1
   WeaponEntityPrefab: {fileID: 2385975003699691664, guid: 242b8a4b30a45254fbbc25b1707b9b4c,
     type: 3}
   WeaponType: 0
   AmmoType: 0
+  AmmoConfig: {fileID: 11400000, guid: 1a66b1ae84e613a4eaf3a572b50e8059, type: 2}
   Damage: 20
   FireRate: 0.8
   BulletsPerShot: 6
   MaxRange: 500
-  MaxRounds: 24
   MagazineSize: 6
+  ReloadSize: 1
   RecoilStrength: 50
   BloomSize: 25
   KnockbackForce: 100

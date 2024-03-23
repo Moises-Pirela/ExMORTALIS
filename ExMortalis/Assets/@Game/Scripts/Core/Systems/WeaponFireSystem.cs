@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace Transendence.Core.Systems
 {
+
     [System(SystemAttributeType.PostProcess, -1)]
     public class WeaponFireSystem : BaseSystem
     {
@@ -39,11 +40,11 @@ namespace Transendence.Core.Systems
                     {
                         if (NextFireTime > Time.time) continue;
 
-                        // if (equippedWeapon.AmmoCount.CurrentCount <= 0)
-                        // {
-                        //     equippedWeapon.PlayOneShot(weaponConfig.EmptyFireClip);
-                        //     continue;
-                        // } 
+                        if (equippedWeapon.AmmoCount.CurrentCount <= 0)
+                        {
+                            equippedWeapon.PlayOneShot(weaponConfig.EmptyFireClip);
+                            continue;
+                        }
 
                         NextFireTime = weaponConfig.FireRate + Time.time;
 

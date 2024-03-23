@@ -97,7 +97,10 @@ MonoBehaviour:
   - {fileID: -6859929973047190166}
   - {fileID: 7557052450583171852}
   - {fileID: -1878332245247344467}
-  m_RendererFeatureMap: 6a9d77f408a2cca00c5301322a0be068adc0de57c6d2eee5
+  - {fileID: 8581229586039508099}
+  - {fileID: 7448177310099235038}
+  - {fileID: 6155935447915563506}
+  m_RendererFeatureMap: 6a9d77f408a2cca00c5301322a0be068adc0de57c6d2eee5830cf5dbd7a61677dee09628cd3d5d67f2093ea1ac466e55
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -138,6 +141,38 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &6155935447915563506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
+  m_Name: FullScreenPassRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  passMaterial: {fileID: 2100000, guid: 78a08787ca30045abb69f6f7dd878e09, type: 2}
+  injectionPoint: 600
+  requirements: 4
+  passIndex: 0
+--- !u!114 &7448177310099235038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dab975e69883249a56554e791c4fd0, type: 3}
+  m_Name: ButoRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderPassEvent: 450
 --- !u!114 &7557052450583171852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,3 +215,80 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: -0.03, z: 0, w: 1}
       cameraFieldOfView: 60
+--- !u!114 &8581229586039508099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4473ca3f180686849980f1ab4439aff1, type: 3}
+  m_Name: OilPaint
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  settings:
+    intensity: 0.3
+    kuwahara: 1
+    passes: 1
+    radius: 10
+    blur: 6
+    sharpness: 2
+    hardness: 85.7
+    alpha: 1
+    zeroCrossing: 0.58
+    detail: 1
+    detailStrength: 0.502
+    embossStrength: 5
+    embossAngle: 0
+    waterColor: 0.121
+    processDepth: 1
+    depthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.75
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0.25
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    depthPower: 1
+    sampleSky: 1
+    viewDepthCurve: 0
+    renderSize: 1
+    brightness: 0
+    contrast: 1
+    gamma: 1
+    hue: 0
+    saturation: 1.4
+    affectSceneView: 1
+    filterMode: 0
+    whenToInsert: 550
+    ignoreDeltaTimeScale: 1
+    enableProfiling: 0
+    forceCurveTextureUpdate: 0

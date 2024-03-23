@@ -14,12 +14,13 @@ namespace Transendence.Core.Configs
         public GameObject WeaponEntityPrefab;
         public WeaponType WeaponType;
         public DamageType AmmoType;
+        public InventoryItemConfig AmmoConfig;
         public float Damage;
         public float FireRate;
         public int BulletsPerShot;
         public float MaxRange;
-        public float MaxRounds;
-        public float MagazineSize;
+        public int MagazineSize;
+        public int ReloadSize;
         public float RecoilStrength;
         public float BloomSize;
         [Range(1, 100)] public float KnockbackForce;

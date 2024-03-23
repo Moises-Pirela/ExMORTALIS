@@ -79,7 +79,7 @@ namespace Transendence.Game.UI
 
                 World.Instance.EntityContainer.GetComponent(World.PLAYER_ENTITY_ID, ComponentType.Inventory, out InventoryComponent playerInventory);
 
-                playerInventory.InventoryGrid.MoveItemToIndex(GridPosition, dropIndex);
+                playerInventory.Inventory.MoveItemToIndex(GridPosition, dropIndex);
 
                 DraggedItemObject = null;
 

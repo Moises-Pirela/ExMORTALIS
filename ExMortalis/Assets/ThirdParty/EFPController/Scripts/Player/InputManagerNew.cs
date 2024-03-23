@@ -70,6 +70,7 @@ namespace EFPController
             // m_InputActions.Gameplay._9.performed += _ => FireWeapon(3);
             // m_InputActions.Gameplay._0.performed += _ => FireWeapon(3);
             m_InputActions.Gameplay.PrimaryFire.performed += _ => UseEquippedItem();
+            m_InputActions.Gameplay.Reload.performed += _ => ReloadWeapon();
             m_InputActions.Gameplay.Cycle.performed += (InputAction.CallbackContext c) => CycleWeapons((int)c.ReadValue<float>());
             m_InputActions.Gameplay.OpenTabMenu.performed += (InputAction.CallbackContext c) => 
             {
@@ -223,6 +224,23 @@ namespace EFPController
             if (uICommand == UICommand.TabMenuUpdate)
                 GameManager.Instance.UIManager.SendUpdateCommand(uICommand, uIData);
 
+        }
+
+        public void ReloadWeapon()
+        {
+            World.Instance.EntityContainer.GetComponent<EquipmentComponent>(World.PLAYER_ENTITY_ID, ComponentType.Equipment, out EquipmentComponent equipment);
+
+            if (equipment.CurrentEquippedWeaponIndex == -1) return;
+
+            World.Instance.EntityContainer.GetComponent<WeaponComponent>(equipment.EquippedItemEntityIds[equipment.CurrentEquippedWeaponIndex], ComponentType.Weapon, out WeaponComponent weapon);
+
+            World.Instance.EntityContainer.GetComponent<InventoryComponent>(World.PLAYER_ENTITY_ID, ComponentType.Inventory, out InventoryComponent inventory);
+
+            if (inventory.Inventory.GetStacksOfItem(weapon.WeaponConfig.AmmoConfig.Id) == 0) return;
+
+            if (weapon.AmmoCount.CurrentCount >= weapon.WeaponConfig.MagazineSize) return;
+
+            weapon.SetAnimation("Reload", "Reload");
         }
 
     }

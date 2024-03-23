@@ -33,7 +33,7 @@ namespace Transendence.Game.UI
 
             for (int i = 0; i < GridSlots.Length; i++)
             {
-                if (playerInventory.InventoryGrid.TryGetGridPositionByIndex(i, out Vector2Int pos))
+                if (playerInventory.Inventory.TryGetGridPositionByIndex(i, out Vector2Int pos))
                 {
                     GridSlots[i].GridPosition = pos;
                 }
@@ -46,7 +46,7 @@ namespace Transendence.Game.UI
 
             for (int i = 0; i < GridSlots.Length; i++)
             {
-                InventoryItem inventoryItem = playerInventory.InventoryGrid.Inventory[GridSlots[i].GridPosition.x, GridSlots[i].GridPosition.y];
+                InventoryItem inventoryItem = playerInventory.Inventory.Inventory[GridSlots[i].GridPosition.x, GridSlots[i].GridPosition.y];
 
                 Sprite itemImage = null;
                 string text = "EMPTY";

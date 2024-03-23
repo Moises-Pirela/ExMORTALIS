@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 956373872192407204}
   - component: {fileID: -4940315432713355181}
   - component: {fileID: 5524627232557819284}
+  - component: {fileID: 7577362544948792478}
   m_Layer: 11
   m_Name: M1897
   m_TagString: Untagged
@@ -111,8 +112,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2385975003699691664}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.007735148, y: 0.42790046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -123,8 +124,8 @@ Transform:
   - {fileID: 4320644152195146506}
   - {fileID: 4757654893364768711}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!82 &4042621279562199787
 AudioSource:
   m_ObjectHideFlags: 0
@@ -234,7 +235,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WielderEntityId: 0
+  NextReloadTime: 0
   WeaponConfig: {fileID: 11400000, guid: 11cd45764413dfa41a1df0b9aeeef958, type: 2}
+  WeaponEntityAnimator: {fileID: 7577362544948792478}
+  ParentEntityAnimator: {fileID: 0}
 --- !u!114 &-4940315432713355181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c19311eb3d1c1f4882bb602ec2cddaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Render: {fileID: 0}
   IsStartingEntity: 0
   Id: -1
 --- !u!114 &5524627232557819284
@@ -263,7 +268,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ParentEntityId: 0
   SpawnOffset: {x: -0.07, y: 0.02, z: 0.08}
-  SpawnRotation: {x: 0, y: 90, z: 90}
+  SpawnRotation: {x: 0, y: 0, z: 0}
+--- !u!95 &7577362544948792478
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2385975003699691664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92e989ab2df11294bab624d37e114abd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2425724868629186707
 GameObject:
   m_ObjectHideFlags: 0

@@ -663,6 +663,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""417eeeb5-b9cf-4280-bd7f-a3861afbef9d"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""5d7cfb14-c418-4dd3-873c-aa45e72b8fbb"",
                     ""path"": ""<Mouse>/scroll/y"",
                     ""interactions"": """",

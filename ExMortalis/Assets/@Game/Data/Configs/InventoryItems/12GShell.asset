@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0
   Name: 12G Shell
-  ItemSprite: {fileID: 0}
+  ItemSprite: {fileID: 21300000, guid: 3db0bf8103e474a45a4d785c31ca9b63, type: 3}
   ItemType: 2
   GridSize: {x: 1, y: 1}
   MaxStacks: 12

@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using JetBrains.Annotations;
 using Transendence.Core.Configs;
 using UnityEngine;
 using UnityEngine.Scripting;
+using UnityEngine.UIElements;
 
 namespace Transendence.Core
 {
@@ -17,13 +19,13 @@ namespace Transendence.Core
     public class InventoryComponent : MonoBehaviour, IComponent
     {
         public Vector2Int InventorySize;
-        public InventoryGrid InventoryGrid;
+        public InventoryGrid Inventory;
 
         public void Awake()
         {
-            InventoryGrid = new InventoryGrid();
+            Inventory = new InventoryGrid();
 
-            InventoryGrid.InitializeGrid(InventorySize);
+            Inventory.InitializeGrid(InventorySize);
         }
         public ComponentType GetComponentType()
         {
@@ -46,6 +48,62 @@ namespace Transendence.Core
                     Inventory[x, y] = new InventoryItem() { ConfigId = -1 };
                 }
             }
+        }
+
+        public int GetStacksOfItem(int configId)
+        {
+            int totalStacks = 0;
+
+            if (ItemLocations.TryGetValue(configId, out var positions))
+            {
+                foreach (var position in positions)
+                {
+                    totalStacks += Inventory[position.x, position.y].Stacks;
+                }
+            }
+
+            return totalStacks;
+        }
+
+        public int TryTakeFromStack(int configId, int amount)
+        {
+            int totalTaken = 0;
+            var positionsToRemove = new List<Vector2Int>();
+
+            if (ItemLocations.TryGetValue(configId, out var positions))
+            {
+                foreach (var position in positions)
+                {
+                    var item = Inventory[position.x, position.y];
+
+                    int canTake = Math.Min(item.Stacks, amount - totalTaken);
+
+                    item.Stacks -= canTake;
+
+                    totalTaken += canTake;
+
+                    Inventory[position.x, position.y] = item;
+
+                    if (item.Stacks == 0)
+                    {
+                        positionsToRemove.Add(position);
+                    }
+
+                    if (totalTaken >= amount)
+                    {
+                        break;
+                    }
+                }
+
+                foreach (var position in positionsToRemove)
+                {
+                    Inventory[position.x, position.y] = new InventoryItem() { ConfigId = -1 };
+
+                    ItemLocations[configId].Remove(position);
+                }
+            }
+
+            return totalTaken;
         }
 
 
@@ -122,6 +180,8 @@ namespace Transendence.Core
 
                         // Update the hash map with the new stack location
                         UpdateItemLocations(item, new Vector2Int(x, y));
+
+                        Inventory[x, y] = item;
 
                         Debug.Log($"Added new stack of {item.ConfigId} to {x}:{y}");
                         return true;
