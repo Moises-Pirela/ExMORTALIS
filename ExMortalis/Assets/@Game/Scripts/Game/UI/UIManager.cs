@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace NL.Game.UI
+namespace NL.ExMORTALIS.UI
 {
     public class UIManager
     {

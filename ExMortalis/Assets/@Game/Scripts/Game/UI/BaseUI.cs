@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace NL.Game.UI
+namespace NL.ExMORTALIS.UI
 {
     public abstract class BaseUI : MonoBehaviour, IUI
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using NL.Core;
 
-namespace NL.Game.UI
+namespace NL.ExMORTALIS.UI
 {
 
     public struct AmmoCounterUIData : IUIData

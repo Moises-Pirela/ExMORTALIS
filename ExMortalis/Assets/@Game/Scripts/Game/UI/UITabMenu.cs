@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
-namespace NL.Game.UI
+namespace NL.ExMORTALIS.UI
 {
     public struct InventoryUIData : IUIData
     {

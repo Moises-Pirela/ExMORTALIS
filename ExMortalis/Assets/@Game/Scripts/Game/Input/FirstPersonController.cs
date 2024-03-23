@@ -1,8 +1,8 @@
-using NL.Game.Input;
+using NL.ExMORTALIS.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace NL.Game
+namespace NL.ExMORTALIS
 {
     public class FirstPersonController : MonoBehaviour
     {

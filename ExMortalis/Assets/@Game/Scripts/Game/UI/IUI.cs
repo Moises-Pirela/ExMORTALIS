@@ -1,4 +1,4 @@
-namespace NL.Game.UI
+namespace NL.ExMORTALIS.UI
 {
     public interface IUI
     {

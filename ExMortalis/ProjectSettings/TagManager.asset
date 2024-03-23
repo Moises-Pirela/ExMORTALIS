@@ -10,6 +10,8 @@ TagManager:
   - Limbs
   - Flesh
   - Concrete
+  - Head
+  - Throwable
   layers:
   - Default
   - TransparentFX

@@ -26,6 +26,7 @@ MonoBehaviour:
   AmmoConfig: {fileID: 11400000, guid: 1a66b1ae84e613a4eaf3a572b50e8059, type: 2}
   Damage: 20
   FireRate: 0.8
+  ReloadTimeSec: 0.8
   BulletsPerShot: 6
   MaxRange: 500
   MagazineSize: 6

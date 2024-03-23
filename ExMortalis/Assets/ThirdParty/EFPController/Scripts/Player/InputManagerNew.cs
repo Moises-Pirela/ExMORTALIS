@@ -8,7 +8,7 @@ using static EFPController.InputManager;
 using NL.Core;
 using NL.Core.Postprocess;
 using UnityEngine.PlayerLoop;
-using NL.Game.UI;
+using NL.ExMORTALIS.UI;
 using NL.Core.Systems;
 
 namespace EFPController

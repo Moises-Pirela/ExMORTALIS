@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace NL.Game.Input
+namespace NL.ExMORTALIS.Input
 {
     public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {

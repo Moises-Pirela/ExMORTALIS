@@ -3,7 +3,7 @@ using NL.Core.Configs;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-namespace NL.Game.UI
+namespace NL.ExMORTALIS.UI
 {
     public class GameManager : MonoBehaviour
     {

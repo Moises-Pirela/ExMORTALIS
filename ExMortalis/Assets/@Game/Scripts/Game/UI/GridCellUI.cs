@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace NL.Game.UI
+namespace NL.ExMORTALIS.UI
 {
     public class GridCellUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDragHandler
     {

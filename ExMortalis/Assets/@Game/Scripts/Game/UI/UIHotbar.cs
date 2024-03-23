@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using NL.Game.UI;
+using NL.ExMORTALIS.UI;
 using UnityEngine;
 
-namespace NL.Game
+namespace NL.ExMORTALIS
 {
     public class UIHotbar : MonoBehaviour
     {

@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NL.Game.UI
+namespace NL.ExMORTALIS.UI
 {
 
     public struct EntityHealthBarUIData : IUIData

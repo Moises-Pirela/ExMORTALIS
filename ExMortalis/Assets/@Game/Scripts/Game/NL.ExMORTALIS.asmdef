@@ -1,6 +1,6 @@
 {
-    "name": "Transendence.Game",
-    "rootNamespace": "Transendence.Game",
+    "name": "NL.ExMORTALIS",
+    "rootNamespace": "NL.ExMORTALIS",
     "references": [
         "GUID:75469ad4d38634e559750d17036d5f7c",
         "GUID:314b275bfa4d99346a8c489ae6814481",

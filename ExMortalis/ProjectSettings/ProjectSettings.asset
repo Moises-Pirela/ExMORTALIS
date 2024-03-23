@@ -154,7 +154,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.Develobster.EnjoyableFirstPersonController
+    Standalone: com.Necrotek-Labs.ExMORTALIS
   buildNumber:
     Bratwurst: 0
     Standalone: 2
