@@ -34,6 +34,16 @@ namespace NL.Core.Systems
                             World.Instance.AddPostProcessEvent(equipWeaponPostProcessEvent);
                         }
 
+                        if (World.Instance.EntityContainer.HasComponent<DestroyOnPickupComponent>(interactPostprocess.TargetEntityId, ComponentType.DestroyOnPickup))
+                        {
+                            KillEntityPostprocessEvent killEntityPostprocess = new KillEntityPostprocessEvent();
+
+                            killEntityPostprocess.EntityId = interactPostprocess.TargetEntityId;
+                            killEntityPostprocess.DestroyGO = true;
+
+                            World.Instance.AddPostProcessEvent(killEntityPostprocess);
+                        }
+
                         continue;
                     }
                     else if (World.Instance.EntityContainer.GetComponent<AmmoItemPickupComponent>(interactPostprocess.TargetEntityId, ComponentType.AmmoItemPickup, out AmmoItemPickupComponent ammoPickup))
@@ -45,6 +55,18 @@ namespace NL.Core.Systems
                         };
                         
                         inventoryComponents[interactPostprocess.InteractorEntityId].Inventory.TryAdd(inventoryItem);
+
+                        if (World.Instance.EntityContainer.HasComponent<DestroyOnPickupComponent>(interactPostprocess.TargetEntityId, ComponentType.DestroyOnPickup))
+                        {
+                            KillEntityPostprocessEvent killEntityPostprocess = new KillEntityPostprocessEvent();
+
+                            killEntityPostprocess.EntityId = interactPostprocess.TargetEntityId;
+                            killEntityPostprocess.DestroyGO = true;
+
+                            World.Instance.AddPostProcessEvent(killEntityPostprocess);
+                        }
+
+                        continue;
                     }
 
 
