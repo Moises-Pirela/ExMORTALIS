@@ -7,7 +7,6 @@ namespace NL.Core.Systems
     [System(SystemAttributeType.Normal)]
     public class ThrowSystem : BaseSystem
     {
-        //TODO: Check for the entities that throw things not the ones that get thrown
         [BurstCompile]
         public override void SystemUpdate(Entity[] entities, ComponentArray[] componentArrays)
         {
@@ -22,16 +21,26 @@ namespace NL.Core.Systems
 
                 if (throwerComponents[entity.Id].PickedUpEntityId == -1) continue;
 
-                if (throwerComponents[entity.Id].ThrowDirection == UnityEngine.Vector3.zero) continue;
-
                 ThrowableComponent throwableComponent = throwableComponents[throwerComponents[entity.Id].PickedUpEntityId];
 
-                throwableComponent.Rigidbody.isKinematic = true;
-                throwableComponent.Throw(throwerComponents[entity.Id].ThrowDistance, throwerComponents[entity.Id].ThrowDirection);
+                if (throwerComponents[entity.Id].ThrowDirection == UnityEngine.Vector3.zero)
+                {
+                    throwableComponent.transform.rotation = throwerComponents[entity.Id].transform.rotation;
+                    throwableComponent.transform.position = throwerComponents[entity.Id].PickupTransform.position;
+                    Physics.IgnoreCollision(throwerComponents[entity.Id].GetComponent<Collider>(), throwableComponent.GetComponent<Collider>(), true);
+                    continue;
+                }
 
                 throwerComponents[entity.Id].PickedUpEntityId = -1;
+                Physics.IgnoreCollision(throwerComponents[entity.Id].GetComponent<Collider>(), throwableComponent.GetComponent<Collider>(), false);
+
+                throwableComponent.Rigidbody.useGravity = true;
+                throwableComponent.transform.parent = null;
+
+                throwableComponent.Rigidbody.AddForce(throwerComponents[entity.Id].ThrowDirection * throwerComponents[entity.Id].ThrowDistance, ForceMode.Impulse);
+
                 throwerComponents[entity.Id].ThrowDirection = Vector3.zero;
-                throwerComponents[entity.Id].ThrowDistance = 0;
+
             }
         }
     }

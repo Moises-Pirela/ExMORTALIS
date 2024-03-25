@@ -12,11 +12,6 @@ namespace NL.Core
             Rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Throw(float throwForce, Vector3 throwDirection)
-        {
-            Rigidbody.velocity = throwDirection * throwForce;
-        }
-
         public ComponentType GetComponentType()
         {
             return ComponentType.Throwable;

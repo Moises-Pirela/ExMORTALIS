@@ -54,7 +54,26 @@ namespace NL.Core.Systems
                             break;
                         case PlayerInputPostProcess.PlayerInputType.Fire:
 
+                            World.Instance.EntityContainer.GetComponent<ThrowerComponent>(World.PLAYER_ENTITY_ID, ComponentType.Thrower, out ThrowerComponent thrower);
 
+                            if (thrower.PickedUpEntityId != -1)
+                            {
+                                int pickedUpEntity = thrower.PickedUpEntityId;
+
+                                World.Instance.EntityContainer.GetComponent<ThrowableComponent>(thrower.PickedUpEntityId, ComponentType.Throwable, out ThrowableComponent throwable);
+
+                                thrower.ThrowDirection = thrower.PickupTransform.forward;
+                                thrower.ThrowDistance = 100; //TODO: Should be replaced with current character strength skill;
+
+                                return;
+                            }
+
+                            UseWeaponPostprocessEvent use = new UseWeaponPostprocessEvent();
+
+                            use.WeaponHolderEntityId = World.PLAYER_ENTITY_ID;
+                            use.WeaponUseType = WeaponUseType.Shoot;
+
+                            World.Instance.AddPostProcessEvent(use);
 
                             break;
                     }

@@ -70,14 +70,13 @@ namespace EFPController
             // m_InputActions.Gameplay._8.performed += _ => FireWeapon(3);
             // m_InputActions.Gameplay._9.performed += _ => FireWeapon(3);
             // m_InputActions.Gameplay._0.performed += _ => FireWeapon(3);
-            m_InputActions.Gameplay.PrimaryFire.performed += _ => UseEquippedItem();
+            m_InputActions.Gameplay.PrimaryFire.performed += _ => PrimaryFireInput();
             m_InputActions.Gameplay.Interact.performed += _ => Player.instance.Interact();
             m_InputActions.Gameplay.Reload.performed += _ => ReloadWeapon();
             m_InputActions.Gameplay.Cycle.performed += (InputAction.CallbackContext c) => CycleWeapons((int)c.ReadValue<float>());
             m_InputActions.Gameplay.OpenTabMenu.performed += (InputAction.CallbackContext c) => 
             {
                 OpenCloseTabMenu(UICommand.TabMenuShow);
-                //OpenCloseTabMenu(UICommand.TabMenuUpdate, new InventoryUIData());
                 SwitchInputContext(InputContext.UI);
             };
 
@@ -89,6 +88,8 @@ namespace EFPController
                 OpenCloseTabMenu(UICommand.TabMenuHide);
                 SwitchInputContext(InputContext.Gameplay);
             };
+
+            SwitchInputContext(InputContext.Gameplay);
         }
 
         public void SwitchInputContext(InputContext inputContext)
@@ -195,16 +196,13 @@ namespace EFPController
             return false;
         }
 
-        public void UseEquippedItem()
+        public void PrimaryFireInput()
         {
-            UseWeaponPostprocessEvent use = new UseWeaponPostprocessEvent();
+            PlayerInputPostProcess input = new PlayerInputPostProcess();
 
-            TryGetComponent<Entity>(out Entity playerEntity);
+            input.InputType = PlayerInputPostProcess.PlayerInputType.Fire;
 
-            use.WeaponHolderEntityId = playerEntity.Id;
-            use.WeaponUseType = WeaponUseType.Shoot;
-
-            World.Instance.AddPostProcessEvent(use);
+            World.Instance.AddPostProcessEvent(input);
         }
 
         public void CycleWeapons(int cycleAmount)

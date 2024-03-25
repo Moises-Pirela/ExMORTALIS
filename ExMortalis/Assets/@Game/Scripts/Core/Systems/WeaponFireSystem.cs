@@ -26,6 +26,9 @@ namespace NL.Core.Systems
                 if (postProcessEvent is UseWeaponPostprocessEvent weaponPostprocess)
                 {
                     int weaponIndex = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].CurrentEquippedWeaponIndex;
+
+                    if (weaponIndex == -1) continue;
+
                     int weaponEntityId = equipmentComponents[weaponPostprocess.WeaponHolderEntityId].EquippedItemEntityIds[weaponIndex];
 
                     WeaponComponent equippedWeapon = weaponComponents[weaponEntityId];

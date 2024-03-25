@@ -3,6 +3,7 @@ using NL.Core.Configs;
 using NL.Core.Postprocess;
 using NL.Utilities;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace NL.Core.Systems
 {
@@ -77,16 +78,14 @@ namespace NL.Core.Systems
 
                                 throwableComponent.transform.position = throwerComponent.PickupTransform.position;
                                 throwableComponent.transform.parent = throwerComponent.PickupTransform;
-                                throwableComponent.Rigidbody.isKinematic = true;
+                                throwableComponent.Rigidbody.useGravity = false;
                             }
                             else
                             {
+                                Physics.IgnoreCollision(throwerComponent.GetComponent<Collider>(), throwableComponent.GetComponent<Collider>(), false);
+                                throwableComponent.Rigidbody.useGravity = true;
                                 throwableComponent.transform.parent = null;
-                                throwableComponent.Rigidbody.isKinematic = false;
                                 throwerComponent.PickedUpEntityId = -1;
-
-                                //throwerComponent.ThrowDirection = throwerComponent.PickupTransform.forward;
-                                //throwerComponent.ThrowDistance = 10; //TODO: Should be replaced with current character strength skill;
                             }
                         }
                     }

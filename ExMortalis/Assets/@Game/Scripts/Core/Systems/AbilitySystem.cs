@@ -56,7 +56,7 @@ namespace NL.Core.Systems
 
                     if (World.Instance.EntityContainer.HasComponent<ThrowableComponent>(abilityEntityId, ComponentType.Throwable))
                     {
-                        throwableComponents[abilityEntityId].Throw(10, forwardDirection);
+                        throwableComponents[abilityEntityId].Rigidbody.AddForce(forwardDirection * 10, ForceMode.Impulse);
                     }
 
                     childComponents[abilityEntityId].ParentEntityId = entity.Id;
