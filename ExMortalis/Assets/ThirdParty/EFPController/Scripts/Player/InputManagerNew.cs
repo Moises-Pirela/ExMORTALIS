@@ -71,9 +71,10 @@ namespace EFPController
             // m_InputActions.Gameplay._9.performed += _ => FireWeapon(3);
             // m_InputActions.Gameplay._0.performed += _ => FireWeapon(3);
             m_InputActions.Gameplay.PrimaryFire.performed += _ => PrimaryFireInput();
+            m_InputActions.Gameplay.SecondaryFire.performed += _ => SecondaryFireInput();
             m_InputActions.Gameplay.Interact.performed += _ => Player.instance.Interact();
             m_InputActions.Gameplay.Reload.performed += _ => ReloadWeapon();
-            m_InputActions.Gameplay.Cycle.performed += (InputAction.CallbackContext c) => CycleWeapons((int)c.ReadValue<float>());
+            m_InputActions.Gameplay.Cycle.performed += (InputAction.CallbackContext c) => CycleWeaponsInput((int)c.ReadValue<float>());
             m_InputActions.Gameplay.OpenTabMenu.performed += (InputAction.CallbackContext c) => 
             {
                 OpenCloseTabMenu(UICommand.TabMenuShow);
@@ -196,7 +197,7 @@ namespace EFPController
             return false;
         }
 
-        public void PrimaryFireInput()
+        private void PrimaryFireInput()
         {
             PlayerInputPostProcess input = new PlayerInputPostProcess();
 
@@ -205,7 +206,16 @@ namespace EFPController
             World.Instance.AddPostProcessEvent(input);
         }
 
-        public void CycleWeapons(int cycleAmount)
+        private void SecondaryFireInput()
+        {
+            PlayerInputPostProcess input = new PlayerInputPostProcess();
+
+            input.InputType = PlayerInputPostProcess.PlayerInputType.SecondaryFire;
+
+            World.Instance.AddPostProcessEvent(input);
+        }
+
+        private void CycleWeaponsInput(int cycleAmount)
         {
             CycleWeaponPostProcessEvent cycle = new CycleWeaponPostProcessEvent();
 
@@ -217,7 +227,7 @@ namespace EFPController
             World.Instance.AddPostProcessEvent(cycle);
         }
 
-        public void OpenCloseTabMenu(UICommand uICommand, InventoryUIData uIData = new InventoryUIData())
+        private void OpenCloseTabMenu(UICommand uICommand, InventoryUIData uIData = new InventoryUIData())
         {
             GameManager.Instance.UIManager.SendCommand(uICommand);
 
@@ -226,7 +236,7 @@ namespace EFPController
 
         }
 
-        public void ReloadWeapon()
+        private void ReloadWeapon()
         {
             PlayerInputPostProcess input = new PlayerInputPostProcess();
 

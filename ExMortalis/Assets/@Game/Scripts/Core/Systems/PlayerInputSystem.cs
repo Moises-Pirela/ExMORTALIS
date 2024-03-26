@@ -4,6 +4,7 @@ using NL.Core.Postprocess;
 using NL.Utilities;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace NL.Core.Systems
 {
@@ -63,7 +64,7 @@ namespace NL.Core.Systems
                                 World.Instance.EntityContainer.GetComponent<ThrowableComponent>(thrower.PickedUpEntityId, ComponentType.Throwable, out ThrowableComponent throwable);
 
                                 thrower.ThrowDirection = thrower.PickupTransform.forward;
-                                thrower.ThrowDistance = 100; //TODO: Should be replaced with current character strength skill;
+                                thrower.ThrowDistance = 1000; //TODO: Should be replaced with current character strength skill;
 
                                 return;
                             }
@@ -76,6 +77,13 @@ namespace NL.Core.Systems
                             World.Instance.AddPostProcessEvent(use);
 
                             break;
+                        case PlayerInputPostProcess.PlayerInputType.SecondaryFire:
+
+                            World.Instance.EntityContainer.GetComponent<KickerComponent>(World.PLAYER_ENTITY_ID, ComponentType.Kicker, out KickerComponent kicker);
+
+                            kicker.HasKicked = true;
+
+                            break;
                     }
                 }
             }
@@ -84,7 +92,7 @@ namespace NL.Core.Systems
 
     public struct PlayerInputPostProcess : IPostProcessEvent
     {
-        public enum PlayerInputType { Reload, Interact, Fire }
+        public enum PlayerInputType { Reload, Interact, Fire, SecondaryFire }
 
         public PlayerInputType InputType;
 

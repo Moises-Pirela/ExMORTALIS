@@ -28,6 +28,8 @@
         AmmoItemPickup,
         DestroyOnPickup,
         Gore,
+        Kicker,
+        Kickable,
         Max,
     }
 
